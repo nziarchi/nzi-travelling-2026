@@ -1,0 +1,2671 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>NZI — Travelling 2025—2026</title>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+
+:root {
+  --ink: #1A1A1A;
+  --ink-mid: #6E6E6E;
+  --ink-light: #B0B0B0;
+  --paper: #FFFFFF;          /* PAPIER blanc */
+  --noir: #0A0A0A;
+  --pierre: #E5DFD0;          /* PIERRE — fond pour les slots images */
+  --pierre-2: #DDD5C2;        /* PIERRE plus prononcée */
+  --hairline: rgba(26,26,26,0.18);
+  --gold: #B58E2E;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+html, body {
+  background: var(--paper);
+  font-family: 'Darker Grotesque', -apple-system, sans-serif;
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.55;
+  font-size: 19px;
+  letter-spacing: 0.005em;
+  -webkit-font-smoothing: antialiased;
+}
+
+[contenteditable="true"]:hover { outline: 1px dashed rgba(26,26,26,0.25); outline-offset: 2px; cursor: text; }
+[contenteditable="true"]:focus { outline: 2px solid #3a7a3a; outline-offset: 2px; background: rgba(58,122,58,0.04); }
+
+/* ============ TOOLBAR ============ */
+.toolbar {
+  position: fixed; top: 16px; right: 16px; z-index: 200;
+  background: var(--noir); color: white; padding: 18px 20px;
+  font-size: 11pt; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 600;
+  display: flex; flex-direction: column; gap: 10px; max-width: 280px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+}
+.toolbar button {
+  background: none; border: 1px solid rgba(255,255,255,0.35);
+  color: white; font-family: inherit; font-size: 10pt;
+  letter-spacing: 0.08em; padding: 9px 12px; cursor: pointer; text-transform: uppercase;
+  font-weight: 600;
+}
+.toolbar button:hover { background: rgba(255,255,255,0.1); }
+.toolbar button.primary { background: #3a7a3a; border-color: #3a7a3a; }
+.toolbar .info { font-size: 9.5pt; color: rgba(255,255,255,0.75); margin-top: 6px; line-height: 1.55; letter-spacing: 0; text-transform: none; font-weight: 400; }
+
+/* ============ COVER ============ */
+.cover {
+  background: var(--noir); color: white; min-height: 100vh;
+  padding: 6rem 8vw; display: flex; flex-direction: column; justify-content: space-between;
+}
+.cover-top {
+  display: flex; justify-content: space-between;
+  font-size: 11pt; letter-spacing: 0.22em; text-transform: uppercase;
+  color: rgba(255,255,255,0.6); font-weight: 600;
+}
+.cover-center h1 {
+  font-size: clamp(72px, 11vw, 144px); font-weight: 300;
+  line-height: 0.88; letter-spacing: -0.035em; margin-top: 12vh;
+}
+.cover-center .subtitle {
+  font-size: clamp(18px, 1.4vw, 22px); font-weight: 400;
+  color: rgba(255,255,255,0.78); margin-top: 3rem;
+  max-width: 44rem; line-height: 1.45;
+}
+.cover-bottom {
+  display: flex; justify-content: space-between; align-items: flex-end;
+  font-size: 11pt; letter-spacing: 0.15em; text-transform: uppercase;
+  color: rgba(255,255,255,0.55); font-weight: 600;
+}
+.logo-nzi { height: clamp(32px, 4vw, 56px); width: auto; display: block; }
+.logo-mark-contact { height: 44px; width: auto; display: block; margin-bottom: 1.2rem; }
+.cover-bottom .right-info { text-align: right; line-height: 1.6; }
+
+/* ============ KICKER + OUVERTURE ============ */
+.kicker {
+  font-size: 10pt; letter-spacing: 0.26em; text-transform: uppercase;
+  color: var(--ink-mid); font-weight: 700; margin-bottom: 1.5rem;
+}
+.ouverture { padding: 8rem 8vw 6rem; max-width: 1400px; margin: 0 auto; }
+.ouverture .lead {
+  font-size: clamp(32px, 3.6vw, 48px); font-weight: 400;
+  line-height: 1.18; letter-spacing: -0.022em; max-width: 56rem;
+}
+.ouverture .lead em { font-style: normal; color: var(--ink-mid); }
+.ouverture .signature {
+  font-size: 11pt; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--ink-mid); font-weight: 600; margin-top: 4rem;
+}
+
+/* ============ CHAPTER ============ */
+.chapter-opener {
+  padding: 9rem 8vw 4rem; max-width: 1400px; margin: 0 auto;
+  border-top: 2pt solid var(--ink); counter-reset: project-num;
+}
+.chapter-opener h2 {
+  font-size: clamp(56px, 7vw, 104px); font-weight: 300;
+  line-height: 1; letter-spacing: -0.03em; margin-top: 1.8rem;
+}
+.chapter-opener .chapter-intro {
+  font-size: clamp(17px, 1.3vw, 21px); color: var(--ink-mid);
+  margin-top: 1.8rem; max-width: 44rem; line-height: 1.55;
+}
+
+/* ============ PROJECT ============ */
+.project {
+  padding: 7rem 0 4rem;
+  display: flex; flex-direction: column;
+  position: relative; counter-increment: project-num;
+}
+.project::before {
+  content: ""; position: absolute; top: 0; left: 8vw; right: 8vw;
+  height: 1pt; background: var(--ink); opacity: 0.3;
+}
+
+.project-header {
+  padding: 0 8vw;
+  max-width: 1400px;
+  margin: 0 auto 3rem;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 4rem;
+  align-items: end;
+}
+.project-num-line {
+  display: flex; align-items: baseline; gap: 1.2rem; margin-bottom: 1.2rem;
+}
+.project-num {
+  font-size: 1.2rem; font-weight: 800; letter-spacing: 0.05em; color: var(--ink);
+  margin-right: 1.2em; font-variant-numeric: tabular-nums;
+}
+.project-num::before { content: counter(project-num, decimal-leading-zero); }
+.project-num-label {
+  font-size: 10pt; letter-spacing: 0.24em; text-transform: uppercase;
+  color: var(--ink-mid); font-weight: 700;
+}
+.project-title h3 {
+  font-size: clamp(40px, 5.5vw, 76px);
+  font-weight: 700; line-height: 0.95;
+  letter-spacing: -0.03em; margin-bottom: 1rem; color: var(--ink);
+}
+.project-title .program-line {
+  font-size: clamp(17px, 1.4vw, 21px);
+  color: var(--ink); font-weight: 600; line-height: 1.4;
+}
+
+/* ============ CARTOUCHE — sans fond, juste typographie ============ */
+.cartouche {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.4rem 1.6rem;
+  border-top: 1pt solid var(--ink);
+  padding-top: 1.4rem;
+}
+.cartouche .data-item {
+  border-top: 0.5pt solid var(--hairline);
+  padding-top: 0.5rem;
+}
+.cartouche .data-item:nth-child(-n+2) { border-top: none; padding-top: 0; }
+.cartouche .label {
+  font-size: 8.5pt; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--ink-mid); font-weight: 700; display: block; margin-bottom: 0.35rem;
+}
+.cartouche .value {
+  font-size: 13pt; line-height: 1.35; color: var(--ink); font-weight: 600;
+}
+.cartouche .value-big {
+  font-size: 24pt; font-weight: 700; letter-spacing: -0.02em; line-height: 1; color: var(--ink);
+}
+.cartouche .value-big span {
+  font-size: 12pt; color: var(--ink-mid); font-weight: 600; letter-spacing: 0; display: inline;
+}
+.cartouche .data-item.full { grid-column: span 2; }
+
+/* ===== Cartouche : champs KEY (MOA/Programme/Budget/Statut) en évidence ===== */
+.cartouche .data-item.key {
+  background: rgba(26,26,26,0.045);
+  padding: 0.7rem 0.85rem;
+  border-top: none;
+}
+.cartouche .data-item.key .label {
+  color: var(--ink);
+  font-weight: 600;
+  letter-spacing: 0.24em; font-size: 8.5pt;
+}
+.cartouche .data-item.key .value {
+  font-weight: 700;
+  color: var(--ink);
+  font-size: 1.05em;
+  line-height: 1.4;
+}
+.cartouche .value.missing {
+  color: #c1272d;
+  font-weight: 800;
+}
+.cartouche .value.missing::before {
+  content: "⚠ ";
+  margin-right: 0.2em;
+  font-weight: 800;
+}
+
+
+/* ============ DESCRIPTION ============ */
+.project-description {
+  padding: 0 8vw 3rem;
+  max-width: 1400px; margin: 0 auto; width: 100%;
+}
+.project-description p {
+  font-size: 13pt; line-height: 1.7; margin-bottom: 0.9rem;
+  max-width: 56rem; color: var(--ink);
+}
+
+/* ============ PRIX & DISTINCTIONS (fond pierre, badge, mise en valeur) ============ */
+.project-prize {
+  position: relative;
+  padding: 2rem 2.4rem 1.8rem;
+  margin: 0.5rem 8vw 3rem;
+  max-width: 1400px;
+  margin-left: auto; margin-right: auto;
+  background: var(--pierre);
+}
+.project-prize::before {
+  content: "★";
+  position: absolute;
+  top: -16px; left: 24px;
+  width: 32px; height: 32px;
+  background: var(--gold); color: var(--paper);
+  font-size: 14pt; line-height: 32px; text-align: center;
+  border-radius: 50%;
+}
+.project-prize .label {
+  font-size: 10pt; letter-spacing: 0.3em; text-transform: uppercase;
+  color: var(--ink); font-weight: 700; display: block; margin-bottom: 0.6rem;
+}
+.project-prize .value {
+  font-size: 13pt; font-weight: 600; line-height: 1.65; color: var(--ink);
+}
+
+/* Bloc Performance (HQE / Label / Structure) — Option β v2 */
+.v3-perfo-block {
+  border: 2pt solid var(--ink);
+  background: rgba(255, 255, 255, 0.4);
+  padding: 1.2rem 1.5rem;
+  max-width: 720px;
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  row-gap: 0.6rem;
+  column-gap: 1rem;
+  align-items: baseline;
+  margin-top: 1.2rem;
+  margin-bottom: 1rem;
+}
+.v3-perfo-key {
+  font-size: 0.9rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-mid, #6E6E6E);
+  font-weight: 800;
+}
+.v3-perfo-value {
+  font-size: 1.25rem;
+  color: var(--ink);
+  font-weight: 800;
+  line-height: 1.2;
+}
+.v3-perfo-empty {
+  color: var(--ink-mid, #6E6E6E);
+  font-weight: 500;
+  font-style: italic;
+  font-size: 1.1rem;
+}
+
+/* Bloc Distinctions par projet — fond noir, accent or */
+.v3-distinctions-block {
+  border: 1pt solid var(--ink);
+  background: var(--ink);
+  color: var(--paper);
+  padding: 1rem 1.3rem;
+  max-width: 1100px;
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  column-gap: 1.5rem;
+  align-items: baseline;
+  margin-bottom: 2rem;
+}
+.v3-distinctions-key {
+  font-size: 0.9rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 800;
+}
+.v3-distinctions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.v3-dist-item {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--paper);
+}
+.v3-dist-status {
+  color: var(--gold);
+  font-weight: 800;
+  margin-right: 0.5em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+}
+@media (max-width: 700px) {
+  .v3-perfo-block,
+  .v3-distinctions-block {
+    grid-template-columns: 1fr;
+    row-gap: 0.5rem;
+  }
+  .v3-distinctions-block { row-gap: 1rem; }
+}
+
+/* ============ IMAGES — pierre fond, cover, alignées ============ */
+.project-images-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+  width: 100%;
+}
+.project-images-grid.cols-2x3 { grid-template-columns: 1fr 1fr; }   /* 6 images en 2 col × 3 lignes */
+.project-images-grid.cols-2x4 { grid-template-columns: 1fr 1fr; }   /* 8 images en 2 col × 4 lignes */
+.project-images-grid.cols-2x5 { grid-template-columns: 1fr 1fr; }   /* 10 images en 2 col × 5 lignes — Bertelotte */
+.project-images-grid.cols-2x6 { grid-template-columns: 1fr 1fr; }   /* 12 images en 2 col × 6 lignes — Nollet */
+.project-images-grid.cols-1-wide { grid-template-columns: 1fr; gap: 4px; }   /* Nuages : 2 photos très paysage empilées */
+.project-images-grid.cols-1-wide .image-slot { aspect-ratio: 21/9; }   /* format très paysage */
+.image-slot {
+  position: relative;
+  aspect-ratio: 4/3;             /* paysage par défaut */
+  background: var(--pierre);
+  overflow: hidden;
+}
+.image-slot.portrait { aspect-ratio: 3/4; }                          /* portrait au toggle */
+.image-slot.tall    { aspect-ratio: 2/3; }                           /* portrait plus marqué */
+.image-slot.square  { aspect-ratio: 1/1; }                           /* carré */
+.image-slot img {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center;
+  display: block;
+}
+.image-slot .placeholder {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--ink-mid);
+  font-size: 10pt; letter-spacing: 0.18em; text-transform: uppercase; text-align: center;
+  padding: 1rem;
+}
+.image-slot .slot-label {
+  position: absolute; top: 0.6rem; left: 0.6rem;
+  background: rgba(0,0,0,0.65); color: white;
+  font-size: 9pt; letter-spacing: 0.18em; text-transform: uppercase;
+  padding: 0.3rem 0.7rem; font-weight: 700; z-index: 3;
+}
+.image-slot select {
+  position: absolute; bottom: 2.6rem; left: 0.6rem; right: 0.6rem;
+  background: rgba(0,0,0,0.92); color: white;
+  border: 1px solid rgba(255,255,255,0.4);
+  padding: 0.5rem 0.7rem; font-size: 10pt;
+  font-family: inherit; cursor: pointer; z-index: 4;
+  letter-spacing: 0.04em; font-weight: 500;
+}
+.image-slot select option { background: var(--noir); color: white; }
+.image-slot .ratio-toggle {
+  position: absolute; bottom: 0.6rem; left: 0.6rem; right: 0.6rem;
+  background: rgba(0,0,0,0.92); color: white;
+  border: 1px solid rgba(255,255,255,0.4);
+  padding: 0.5rem 0.7rem; font-size: 9pt;
+  font-family: inherit; cursor: pointer; z-index: 4;
+  letter-spacing: 0.06em; font-weight: 600;
+  text-transform: uppercase;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.image-slot .ratio-toggle:hover { background: rgba(0,0,0,1); }
+.image-slot .ratio-toggle .current { color: rgba(255,255,255,0.7); font-weight: 400; }
+
+/* ============ CONTREFORTS ============ */
+.contreforts { background: var(--noir); color: white; padding: 8rem 8vw; margin-top: 4rem; }
+.contreforts-inner { max-width: 1400px; margin: 0 auto; }
+.contreforts h2 {
+  font-size: clamp(48px, 6vw, 88px); font-weight: 300; line-height: 1;
+  letter-spacing: -0.03em; margin-bottom: 3.5rem; color: white;
+}
+.contreforts .kicker { color: rgba(255,255,255,0.55); font-weight: 700; }
+.events-hero {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;
+  padding-bottom: 4rem; margin-bottom: 4rem;
+  border-bottom: 0.5pt solid rgba(255,255,255,0.2);
+}
+.events-group h3 {
+  font-size: 11pt; letter-spacing: 0.28em; text-transform: uppercase;
+  color: rgba(255,255,255,0.6); font-weight: 700; margin-bottom: 1.8rem;
+}
+.events-group ul { list-style: none; }
+.events-group li {
+  font-size: clamp(17px, 1.4vw, 21px); line-height: 1.45; color: white;
+  font-weight: 500; letter-spacing: -0.005em; padding: 1rem 0;
+  border-top: 0.5pt solid rgba(255,255,255,0.18);
+}
+.events-group li:first-child { border-top: none; padding-top: 0; }
+.events-group li .meta {
+  display: block; font-size: 10pt; color: rgba(255,255,255,0.55);
+  margin-top: 0.35rem; letter-spacing: 0.06em; font-weight: 400;
+}
+.events-group li strong { font-weight: 700; color: white; }
+
+/* ============ CONTACT ============ */
+.contact-block { padding: 8rem 8vw; max-width: 1400px; margin: 0 auto; }
+.contact-block h2 {
+  font-size: clamp(64px, 8vw, 124px); font-weight: 300;
+  line-height: 0.92; letter-spacing: -0.032em; margin-bottom: 4rem;
+}
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 3rem; }
+.contact-cell .label {
+  font-size: 9pt; letter-spacing: 0.24em; text-transform: uppercase;
+  color: var(--ink-mid); font-weight: 700; margin-bottom: 0.8rem; display: block;
+}
+.contact-cell .name {
+  font-size: 19pt; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 0.5rem;
+}
+.contact-cell .coord { font-size: 12pt; line-height: 1.7; color: var(--ink); font-weight: 500; }
+.contact-cell a { color: var(--ink); text-decoration: none; border-bottom: 0.5pt solid var(--ink-light); font-weight: 600; }
+.contact-footer {
+  margin-top: 6rem; padding-top: 1.5rem; border-top: 0.5pt solid var(--ink);
+  display: flex; justify-content: space-between;
+  font-size: 10pt; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--ink-mid); font-weight: 600;
+}
+
+@media (max-width: 900px) {
+  .project-header { grid-template-columns: 1fr; gap: 2rem; }
+  .project-images-grid, .project-images-grid.cols-3 { grid-template-columns: 1fr; }
+  .events-hero { grid-template-columns: 1fr; gap: 2.5rem; }
+  .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+}
+
+/* ============ RECONNAISSANCES PAGE ============ */
+.reconnaissances-page {
+  padding: 10rem 8vw 8rem;
+  background: var(--paper);
+  border-top: 2pt solid var(--ink);
+}
+.reco-kicker {
+  font-size: 9pt; letter-spacing: 0.32em; text-transform: uppercase;
+  font-weight: 700; color: var(--ink-mid); margin-bottom: 5rem;
+}
+.reco-group { margin-bottom: 5rem; }
+.reco-project-name {
+  font-size: clamp(4rem, 14vw, 12rem);
+  font-weight: 800;
+  line-height: 0.85;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin: 0 0 1.6rem 0;
+}
+.reco-list {
+  list-style: none; margin: 0; padding: 0;
+  border-top: 0.5pt solid var(--hairline);
+  padding-top: 1rem;
+}
+.reco-list li {
+  font-size: clamp(13px, 1.1vw, 15px);
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.7;
+  padding: 0.35rem 0;
+  border-bottom: 0.5pt solid var(--hairline);
+}
+.reco-list .prize-status {
+  font-weight: 700;
+  color: var(--ink-mid);
+  font-size: 9pt;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-left: 0.5em;
+}
+.reco-agence-name {
+  font-size: clamp(2.5rem, 7vw, 6rem);
+  font-weight: 800;
+  line-height: 0.85;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin: 0 0 1.6rem 0;
+}
+@media (max-width: 600px) {
+  .reconnaissances-page { padding: 6rem 6vw 5rem; }
+}
+
+/* ============ DISTINCTIONS ============ */
+.distinctions { padding: 7rem 8vw 5rem; max-width: 1400px; margin: 0 auto; border-top: 2pt solid var(--ink); }
+.distinctions-inner { width: 100%; }
+.distinctions h2 {
+  font-size: clamp(48px, 6vw, 88px); font-weight: 300; line-height: 1;
+  letter-spacing: -0.03em; margin-top: 1.6rem; margin-bottom: 1.4rem;
+}
+.distinctions-intro {
+  font-size: clamp(17px, 1.3vw, 21px); color: var(--ink-mid);
+  max-width: 44rem; line-height: 1.55; margin-bottom: 3.5rem;
+}
+.distinctions-group { margin-bottom: 3rem; }
+.distinctions-group h3 {
+  font-size: 11pt; letter-spacing: 0.28em; text-transform: uppercase;
+  color: var(--ink-mid); font-weight: 700; margin-bottom: 1.6rem;
+  padding-bottom: 0.8rem; border-bottom: 0.5pt solid var(--hairline);
+}
+.distinctions-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.4rem 2.4rem;
+}
+.distinction {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 1.2rem;
+  align-items: center;
+  padding: 1rem 0;
+  border-top: 0.5pt solid var(--hairline);
+}
+.distinctions-grid > .distinction:nth-child(-n+2) { border-top: none; padding-top: 0.5rem; }
+.prize-logo {
+  height: 56px; width: 80px;
+  object-fit: contain; object-position: left center;
+  display: block;
+}
+.prize-logo-placeholder {
+  height: 56px; width: 80px;
+  border-left: 2pt solid var(--ink); opacity: 0.4;
+}
+.prize-info { display: flex; flex-direction: column; gap: 0.15rem; }
+.prize-year {
+  font-size: 10pt; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--ink-mid); font-weight: 700;
+}
+.prize-name {
+  font-size: 14pt; font-weight: 700; line-height: 1.25;
+  letter-spacing: -0.005em; color: var(--ink);
+}
+.prize-project {
+  font-size: 11pt; color: var(--ink-mid); font-weight: 500; line-height: 1.4;
+}
+@media (max-width: 900px) {
+  .distinctions-grid { grid-template-columns: 1fr; gap: 1rem; }
+  .distinction { grid-template-columns: 64px 1fr; gap: 1rem; }
+  .prize-logo, .prize-logo-placeholder { height: 44px; width: 64px; }
+}
+
+/* ============ EVENTS — pivot marker ============ */
+.events-group li.event-pivot {
+  background: rgba(255,255,255,0.04);
+  padding-left: 0.8rem;
+  margin-left: -0.8rem;
+  border-left: 2pt solid var(--gold);
+}
+.events-group li.event-pivot strong::after {
+  content: " \2605";
+  color: var(--gold);
+  font-weight: 700;
+  margin-left: 0.3rem;
+}
+
+/* ============== V3 — layouts adaptatifs + sélecteurs ============== */
+.v3-project-grid { margin: 0; padding: 0; }
+.v3-hero, .v3-slot {
+  display: block; position: relative; overflow: hidden;
+  background: #f5f3ef; margin: 0;
+}
+.v3-hero {
+  width: 100%; aspect-ratio: 16/9; margin-bottom: 12px;
+}
+.v3-row {
+  display: grid; gap: 12px; margin-bottom: 12px;
+}
+.v3-row-2 { grid-template-columns: 1fr 1fr; }
+.v3-row-3 { grid-template-columns: 1fr 1fr 1fr; }
+.v3-row-4 { grid-template-columns: 1fr 1fr 1fr 1fr; }
+  .v3-row-5 { grid-template-columns: 1fr 1fr 1fr 1fr 1fr; }
+.v3-row-double {
+  display: grid; gap: 12px; margin-bottom: 12px;
+  grid-template-columns: 1fr 1fr;
+}
+.v3-row-double .v3-hero {
+  aspect-ratio: 3/2; margin: 0;
+}
+.v3-slot.v3-slot-43 { aspect-ratio: 4/3; }
+.v3-slot.v3-slot-11 { aspect-ratio: 1/1; }
+.v3-slot.v3-slot-pano { aspect-ratio: 21/9; margin-bottom: 12px; }
+.v3-hero.v3-hero-pano { aspect-ratio: 2/1; }
+.v3-hero.v3-hero-43 { aspect-ratio: 4/3; }
+.v3-row-double.v3-row-pano .v3-hero { aspect-ratio: 2/1; }
+
+.v3-open, .v3-chosen-link {
+  display: block; width: 100%; height: 100%; text-decoration: none;
+}
+.v3-open img, .v3-chosen-img {
+  width: 100%; height: 100%; object-fit: cover; display: block; cursor: zoom-in;
+}
+.v3-close-link { display: none; }
+
+/* Sélecteur : placeholder */
+
+/* Lightbox via :target */
+.v3-hero:target, .v3-slot:target {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  width: 100vw; height: 100vh;
+  margin: 0; padding: 4vh;
+  background: rgba(0,0,0,0.92);
+  z-index: 1000;
+  aspect-ratio: auto;
+  overflow: visible;
+  display: flex; align-items: center; justify-content: center;
+  cursor: zoom-out;
+}
+.v3-hero:target .v3-open, .v3-slot:target .v3-open,
+.v3-hero:target .v3-chosen-link, .v3-slot:target .v3-chosen-link {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center; z-index: 0;
+}
+.v3-hero:target .v3-open img, .v3-slot:target .v3-open img,
+.v3-hero:target .v3-chosen-img, .v3-slot:target .v3-chosen-img {
+  max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain;
+  cursor: zoom-out;
+}
+.v3-hero:target .v3-close-link, .v3-slot:target .v3-close-link {
+  display: block; position: absolute;
+  top: 2vh; right: 2vh;
+  color: #fff; font-size: 36px; font-weight: 200;
+  line-height: 1; text-decoration: none;
+  z-index: 1001; width: 44px; height: 44px; text-align: center;
+}
+/* Quand sélecteur en target, ne pas montrer placeholder */
+
+/* Galerie overlay */
+
+/* Toolbar V3 */
+
+@media (max-width: 600px) {
+  .v3-hero:target, .v3-slot:target { padding: 2vh; }
+  
+}
+
+
+/* === V5 FINAL — modifications A3-β + cover noire + distinctions réduites === */
+.v5-cover {
+  min-height: 92vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  padding: 4vh 6vw;
+  background: #1A1A1A;
+  color: #F5F3EF;
+  margin: 0;
+}
+.v5-cover-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+.v5-cover-title { align-self: end; margin-top: auto; }
+.v5-cover-kicker {
+  font-size: 0.95rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.8rem;
+  font-weight: 600;
+}
+.v5-cover-h1 {
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.2rem;
+  color: #F5F3EF;
+}
+.v5-cover-subtitle {
+  font-size: 1.3rem;
+  opacity: 0.85;
+  max-width: 720px;
+  font-weight: 500;
+  color: #F5F3EF;
+}
+.v5-cover-bottom {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+.v5-cover-arrow { font-size: 2rem; line-height: 1; color: var(--gold); }
+
+
+
+
+/* ============ TOC NAV ============ */
+.toc-nav {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 300;
+  font-family: 'Darker Grotesque', sans-serif;
+}
+.toc-toggle {
+  width: 44px; height: 44px;
+  background: var(--ink);
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  transition: opacity 0.15s;
+}
+.toc-toggle:hover { opacity: 0.75; }
+.toc-panel {
+  display: none;
+  position: absolute;
+  bottom: 52px;
+  right: 0;
+  background: var(--ink);
+  color: white;
+  width: 300px;
+  max-height: 72vh;
+  overflow-y: auto;
+  padding: 1.4rem 1.6rem;
+  box-shadow: -4px -4px 24px rgba(0,0,0,0.3);
+}
+.toc-nav.open .toc-panel { display: block; }
+.toc-panel-header {
+  font-size: 8.5pt;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+  font-weight: 700;
+  margin-bottom: 1.2rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 0.5pt solid rgba(255,255,255,0.15);
+}
+.toc-list { list-style: none; }
+.toc-chapter > a {
+  display: block;
+  padding: 0.55rem 0 0.2rem;
+  color: white;
+  text-decoration: none;
+  font-size: 11pt;
+  font-weight: 700;
+  border-top: 0.5pt solid rgba(255,255,255,0.12);
+  transition: color 0.12s;
+}
+.toc-chapter:first-child > a { border-top: none; }
+.toc-chapter > a:hover { color: var(--gold); }
+.toc-projects { padding: 0 0 0.5rem 0.9rem; list-style: none; }
+.toc-projects a {
+  display: block;
+  padding: 0.2rem 0;
+  color: rgba(255,255,255,0.6);
+  text-decoration: none;
+  font-size: 10.5pt;
+  font-weight: 400;
+  transition: color 0.12s;
+}
+.toc-projects a:hover { color: white; }
+@media (max-width: 600px) {
+  .toc-nav { bottom: 16px; right: 16px; }
+  .toc-panel { width: calc(100vw - 48px); }
+}
+
+/* ============ COVER AVEC PHOTO + ANIMATIONS ============ */
+/* v2char : apparition lettre par lettre */
+.v5-cover-h1 .v2-char {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(80px) skewX(-3deg);
+  animation: v2char 0.45s cubic-bezier(0.16,1,0.3,1) forwards;
+  animation-delay: calc(0.03s * var(--ci) + 0.25s);
+}
+.v5-cover-h1 .v2-sp { display: inline-block; width: 0.28em; }
+@keyframes v2char { to { opacity: 1; transform: none; } }
+
+/* Parallax images */
+.image-slot img, .v3-slot img, .v3-hero img {
+  will-change: transform;
+  transform: scale(1.09) translateY(0px);
+}
+
+/* Cover layout avec photo */
+.v5-cover {
+  position: relative;
+  background: #080808;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 8vw 8vh;
+  overflow: hidden;
+}
+.cover-hero {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.cover-hero img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center 38%;
+  display: block;
+}
+.cover-hero::after {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(to top,
+      rgba(6,6,6,0.96) 0%,
+      rgba(6,6,6,0.70) 35%,
+      rgba(6,6,6,0.22) 65%,
+      rgba(6,6,6,0.08) 100%),
+    linear-gradient(to right,
+      rgba(6,6,6,0.45) 0%,
+      transparent 60%);
+}
+/* Bande NZI en haut (injectée par JS) */
+.cover-eyebrow {
+  position: absolute;
+  top: 5vh; left: 8vw; right: 8vw;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.cover-eyebrow-brand {
+  font-size: 0.62rem;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  font-weight: 900;
+  color: rgba(255,255,255,0.9);
+}
+.cover-eyebrow-year {
+  font-size: 0.62rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: rgba(255,255,255,0.4);
+}
+/* Tout le contenu au-dessus de l'overlay */
+.v5-cover > *:not(.cover-hero) { position: relative; z-index: 2; }
+/* Kicker */
+.v5-cover-kicker {
+  color: var(--gold);
+  font-size: 0.65rem;
+  letter-spacing: 0.5em;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+/* Titre sur fond sombre */
+.v5-cover-h1 {
+  font-weight: 400;
+  color: #FFFFFF;
+  letter-spacing: -0.04em;
+  line-height: 0.86;
+  overflow: visible;
+}
+/* Trait or animé sous le titre */
+.v5-cover-h1::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: var(--gold);
+  margin-top: 2rem;
+  animation: coverLine 0.7s cubic-bezier(0.16,1,0.3,1) 0.9s forwards;
+}
+@keyframes coverLine { to { width: 10rem; } }
+.v5-cover-subtitle {
+  font-size: clamp(14px, 1.45vw, 19px);
+  font-weight: 400;
+  color: rgba(255,255,255,0.88);
+  max-width: 54ch;
+  line-height: 1.65;
+  margin-top: 1.8rem;
+  letter-spacing: 0.01em;
+}
+.v5-cover-top { margin-bottom: 2vh; }
+.v5-cover-arrow { color: var(--gold); }
+
+/* P1 — Fermeture lightbox (overlay JS) */
+.js-lb-close {
+  display: none; align-items: center; justify-content: center;
+  position: fixed; top: 2vh; right: 2vh; z-index: 1100;
+  width: 48px; height: 48px;
+  background: rgba(255,255,255,0.18);
+  border: 1.5px solid rgba(255,255,255,0.35);
+  border-radius: 50%; color: #fff;
+  font-size: 26px; font-weight: 200; cursor: pointer;
+  transition: background 0.18s, border-color 0.18s;
+}
+.js-lb-close:hover { background: rgba(255,255,255,0.32); border-color: rgba(255,255,255,0.6); }
+.js-lb-close.visible { display: flex; }
+
+/* P5 — Impression */
+@media print {
+  * { animation: none !important; transition: none !important; }
+  .toc-nav, .cover-hero, .v5-cover-hero { display: none !important; }
+  .chapter-opener { page-break-before: always; break-before: page; }
+  .project { page-break-inside: avoid; break-inside: avoid; }
+  .v3-hero, .v3-slot { position: relative !important; }
+  .v3-project-grid { display: block; }
+  a[href]::after { content: none; }
+}
+
+/* === Méthode (séquence schémas Nollet/Bertelotte/Coquibus) === */
+.transformation-method {
+  margin: 4.5rem auto 4rem;
+  max-width: 1100px;
+  padding: 0 8vw;
+}
+.tm-head {
+  display: flex; justify-content: space-between; align-items: baseline;
+  border-bottom: 1pt solid var(--ink);
+  padding-bottom: 0.7rem; margin-bottom: 1.8rem;
+  gap: 2rem; flex-wrap: wrap;
+}
+.tm-label {
+  font-size: 9pt; letter-spacing: 0.32em; text-transform: uppercase;
+  color: var(--ink); font-weight: 700;
+}
+.tm-steps {
+  font-size: 9pt; letter-spacing: 0.15em; color: var(--mid);
+  text-transform: uppercase;
+}
+.tm-content { display: flex; justify-content: center; }
+.tm-content img { max-width: 100%; height: auto; display: block; }
+
+/* === Diptyque aérien avant/après === */
+.aerial-diptych { margin: 5rem 0 0; }
+.ad-pair {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
+}
+.ad-frame { position: relative; overflow: hidden; }
+.ad-frame img {
+  width: 100%; height: 100%;
+  object-fit: cover; display: block;
+  aspect-ratio: 4/3;
+}
+.ad-marker {
+  position: absolute; top: 18px; left: 18px;
+  background: var(--ink); color: var(--paper);
+  padding: 7px 16px;
+  font-size: 9pt; letter-spacing: 0.28em;
+  text-transform: uppercase; font-weight: 600;
+}
+.aerial-diptych figcaption {
+  max-width: 1100px;
+  margin: 1.4rem auto 0;
+  padding: 0 8vw;
+  font-size: 11pt; line-height: 1.6;
+  color: var(--mid);
+}
+.aerial-diptych figcaption em {
+  color: var(--light); font-style: italic;
+}
+
+@media print {
+  .transformation-method, .aerial-diptych { page-break-inside: avoid; break-inside: avoid; }
+  .ad-pair { gap: 4px; }
+}
+
+@media (max-width: 700px) {
+  .ad-pair { grid-template-columns: 1fr; }
+  .tm-head { flex-direction: column; gap: 0.4rem; align-items: flex-start; }
+}
+
+/* Nollet — callback photo de couverture */
+.cover-callback {
+  display: inline-block; margin-top: 0.5rem;
+  font-size: 8.5pt; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--gold); font-weight: 700;
+  padding-left: 1.2em; position: relative;
+}
+.cover-callback::before {
+  content: "↑"; position: absolute; left: 0;
+  font-size: 10pt;
+}
+
+/* ============ RECONNAISSANCES — brutalist typographic page ============ */
+.reconnaissances {
+  background: var(--paper);
+  padding: 12vh 7vw 14vh;
+  page-break-before: always;
+  break-before: page;
+}
+.reco-head {
+  display: flex; justify-content: space-between; align-items: baseline;
+  border-bottom: 1pt solid var(--ink);
+  padding-bottom: 1.4rem; margin-bottom: 9rem;
+  gap: 2rem; flex-wrap: wrap;
+}
+.reco-title {
+  font-family: inherit; margin: 0;
+  font-size: clamp(1.6rem, 3.2vw, 2.4rem);
+  font-weight: 800; letter-spacing: 0.05em;
+  text-transform: uppercase; line-height: 1;
+}
+.reco-meta {
+  font-size: 9pt; letter-spacing: 0.3em;
+  text-transform: uppercase; color: var(--mid);
+}
+.reco-block {
+  margin-bottom: 10rem; page-break-inside: avoid; break-inside: avoid;
+}
+.reco-block:last-child { margin-bottom: 0; }
+.reco-block-name {
+  font-size: clamp(4.5rem, 14vw, 11rem);
+  font-weight: 800; letter-spacing: -0.035em; line-height: 0.85;
+  text-transform: uppercase; margin: 0; color: var(--ink);
+  word-break: keep-all;
+}
+.reco-block-sub {
+  font-size: 10pt; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--mid);
+  margin: 1.8rem 0 0; padding-top: 1.2rem;
+  border-top: 1pt solid var(--ink);
+}
+.reco-list {
+  list-style: none; padding: 0;
+  margin: 2.4rem 0 0; max-width: 980px;
+}
+.reco-item {
+  display: grid; grid-template-columns: 4.2rem 1fr auto; gap: 2rem;
+  padding: 1rem 0; border-bottom: 1px solid var(--subtle);
+  font-size: 11pt; align-items: baseline;
+}
+.reco-item:last-child { border-bottom: 0; }
+.reco-year {
+  font-weight: 700; letter-spacing: 0.04em;
+  font-variant-numeric: tabular-nums;
+}
+.reco-prize { color: var(--ink); }
+.reco-prize .org {
+  color: var(--mid); font-style: italic;
+  font-size: 0.92em; margin-left: 0.3rem;
+}
+.reco-status {
+  font-size: 9pt; letter-spacing: 0.24em;
+  text-transform: uppercase; font-weight: 600;
+  white-space: nowrap; color: var(--mid);
+}
+.reco-status.is-laureat {
+  color: var(--ink); font-weight: 800;
+}
+
+@media (max-width: 760px) {
+  .reconnaissances { padding: 8vh 6vw 10vh; }
+  .reco-block { margin-bottom: 6rem; }
+  .reco-block-name { font-size: clamp(3rem, 17vw, 6rem); }
+  .reco-item { grid-template-columns: 3.4rem 1fr; gap: 1rem; }
+  .reco-status { grid-column: 2; padding-top: 0.2rem; }
+}
+
+
+/* ============ CONFERENCE-SERIES — photos curatées par projet ============ */
+.conference-series {
+  margin: 5rem 0 0;
+  padding: 0 4vw;
+  page-break-before: auto;
+}
+.cs-head {
+  display: flex; justify-content: space-between; align-items: baseline;
+  border-top: 1pt solid var(--ink);
+  padding-top: 1.1rem; margin-bottom: 2rem;
+  gap: 1.5rem; flex-wrap: wrap;
+}
+.cs-kicker {
+  font-size: 9pt; letter-spacing: 0.28em;
+  text-transform: uppercase; font-weight: 700; color: var(--ink);
+}
+.cs-credit {
+  font-size: 8.5pt; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--mid);
+}
+.cs-grid {
+  display: grid; grid-template-columns: repeat(12, 1fr); gap: 8px;
+}
+.cs-cell { overflow: hidden; margin: 0; }
+.cs-cell img {
+  width: 100%; height: 100%;
+  object-fit: cover; display: block;
+}
+.cs-hero { grid-column: span 12; aspect-ratio: 16/9; }
+.cs-two-thirds { grid-column: span 8; aspect-ratio: 4/3; }
+.cs-half { grid-column: span 6; aspect-ratio: 4/3; }
+.cs-third { grid-column: span 4; aspect-ratio: 1/1; }
+
+@media (max-width: 760px) {
+  .conference-series { padding: 0 5vw; }
+  .cs-grid { grid-template-columns: repeat(2, 1fr); gap: 4px; }
+  .cs-hero, .cs-two-thirds, .cs-half, .cs-third { grid-column: span 2; aspect-ratio: 3/2; }
+}
+@media print {
+  .conference-series { page-break-inside: avoid; break-inside: avoid; }
+}
+
+
+/* ============ RÉCIT — narrative de conférence brutalisé ============ */
+.recit {
+  margin: 6rem 0 0; padding: 6vh 4vw 4vh;
+  background: var(--paper); border-top: 1pt solid var(--ink);
+}
+.recit-head {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding-bottom: 1.2rem; margin-bottom: 4rem;
+  border-bottom: 1pt solid var(--ink);
+  gap: 2rem; flex-wrap: wrap;
+}
+.recit-title {
+  font-size: clamp(4rem, 12vw, 9rem);
+  font-weight: 800; letter-spacing: -0.035em;
+  line-height: 0.85; text-transform: uppercase;
+  margin: 0; color: var(--ink);
+}
+.recit-meta {
+  font-size: 9pt; letter-spacing: 0.3em;
+  text-transform: uppercase; color: var(--mid);
+}
+.recit-body { max-width: 820px; margin: 0 auto; }
+.recit-beat {
+  display: grid; grid-template-columns: 4rem 1fr;
+  gap: 2.5rem; margin-bottom: 3.2rem; align-items: baseline;
+}
+.recit-num {
+  font-size: 12pt; letter-spacing: 0.05em;
+  font-weight: 800; color: var(--ink);
+  text-align: right; padding-top: 0.4rem;
+  font-variant-numeric: tabular-nums;
+}
+.recit-h3 {
+  font-size: 10pt; letter-spacing: 0.28em;
+  text-transform: uppercase; color: var(--ink);
+  font-weight: 700; margin: 0 0 0.9rem; padding: 0;
+}
+.recit-quote {
+  font-size: 14pt; line-height: 1.55;
+  font-weight: 400; color: var(--ink);
+  margin: 0; font-style: normal;
+}
+.recit-signature {
+  text-align: right; margin: 4rem auto 0;
+  padding-top: 1.5rem; border-top: 1pt solid var(--subtle);
+  max-width: 820px;
+  font-size: 10pt; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--mid);
+}
+@media (max-width: 700px) {
+  .recit-title { font-size: clamp(3rem, 16vw, 5rem); }
+  .recit-beat { grid-template-columns: 2.5rem 1fr; gap: 1.2rem; }
+  .recit-quote { font-size: 12pt; }
+}
+@media print {
+  .recit { page-break-inside: avoid; }
+  .recit-beat { page-break-inside: avoid; }
+}
+
+
+/* ===== Awards v2 — prix protagonistes, projets à côté ===== */
+.reco-section { margin-bottom: 7rem; }
+.reco-section:last-of-type { margin-bottom: 0; }
+.reco-section-title {
+  font-size: clamp(3rem, 9vw, 7rem);
+  font-weight: 800; letter-spacing: -0.025em;
+  line-height: 0.88; text-transform: uppercase;
+  margin: 0 0 3.5rem; color: var(--ink);
+}
+.reco-subsection { margin-top: 3.5rem; }
+.reco-subsection:first-of-type { margin-top: 0; }
+.reco-subsection-title {
+  font-size: 10pt; font-weight: 800;
+  letter-spacing: 0.34em; text-transform: uppercase;
+  color: var(--ink); margin: 0 0 1.6rem;
+  padding-bottom: 0.7rem; border-bottom: 1pt solid var(--ink);
+}
+.reco-list { list-style: none; padding: 0; margin: 0; }
+.reco-row {
+  display: grid; grid-template-columns: 4rem 1fr auto;
+  gap: 2rem; padding: 1.4rem 0;
+  border-bottom: 1px solid var(--subtle);
+  align-items: baseline;
+}
+.reco-row:last-child { border-bottom: 0; }
+.reco-row .reco-year {
+  font-weight: 700; letter-spacing: 0.04em;
+  font-variant-numeric: tabular-nums; color: var(--ink);
+}
+.reco-main { min-width: 0; }
+.reco-row .reco-prize {
+  display: block;
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  font-weight: 800; letter-spacing: 0.012em;
+  text-transform: uppercase;
+  color: var(--ink); line-height: 1.18;
+  background: none; padding: 0;
+}
+.reco-row .reco-project {
+  display: block; margin-top: 0.45rem;
+  font-size: 10pt; color: var(--mid);
+  font-style: italic; letter-spacing: 0.01em;
+}
+.reco-row .reco-status {
+  font-size: 9pt; letter-spacing: 0.24em;
+  text-transform: uppercase; font-weight: 600;
+  white-space: nowrap; color: var(--mid);
+  padding-top: 0.15rem;
+}
+.reco-row .reco-status.is-laureat {
+  color: var(--ink); font-weight: 800;
+}
+@media (max-width: 760px) {
+  .reco-section-title { font-size: clamp(2.2rem, 12vw, 4rem); margin-bottom: 2rem; }
+  .reco-row { grid-template-columns: 3rem 1fr; gap: 1rem; }
+  .reco-row .reco-status { grid-column: 2; padding-top: 0.3rem; }
+}
+
+
+/* ===== Mention prix inline dans chaque projet ===== */
+.project-prizes {
+  margin-top: 0.5rem;
+  font-size: 9pt; letter-spacing: 0.16em;
+  text-transform: uppercase; font-weight: 700;
+  color: var(--ink); line-height: 1.5;
+}
+.project-prizes::before {
+  content: "\2605"; color: var(--gold);
+  margin-right: 0.5em; font-size: 1.05em;
+}
+.project-prizes .pp-sep { color: var(--light); margin: 0 0.55em; font-weight: 400; }
+.project-prizes .pp-more {
+  color: var(--mid); font-weight: 500;
+  letter-spacing: 0.12em;
+}
+.project-prizes a {
+  color: var(--ink); text-decoration: none;
+  border-bottom: 1px solid var(--subtle);
+  padding-bottom: 1px;
+}
+.project-prizes a:hover {
+  border-bottom-color: var(--ink);
+}
+
+
+/* ===== Note historique dans Awards ===== */
+.reco-note {
+  max-width: 760px; margin: 2.2rem 0 0;
+  padding: 1.1rem 1.3rem;
+  background: rgba(26,26,26,0.035);
+  font-size: 10pt; line-height: 1.55;
+  color: var(--mid); font-style: italic;
+}
+.reco-note strong {
+  color: var(--ink); font-style: normal;
+  font-weight: 700; letter-spacing: 0.06em;
+}
+
+
+/* ===== Awards : groupes par pays (international) ===== */
+.reco-country-group { margin-bottom: 2.8rem; }
+.reco-country-group:last-child { margin-bottom: 0; }
+.reco-country {
+  display: flex; justify-content: space-between; align-items: baseline;
+  font-size: clamp(1.5rem, 3vw, 2.4rem);
+  font-weight: 800; letter-spacing: 0.005em;
+  text-transform: uppercase; line-height: 1;
+  margin: 0 0 1.3rem; padding-bottom: 0.7rem;
+  border-bottom: 1pt solid var(--ink);
+  color: var(--ink); gap: 1.5rem;
+}
+.reco-country-code {
+  font-size: 10pt; letter-spacing: 0.34em;
+  font-weight: 700; color: var(--mid);
+}
+@media (max-width: 700px) {
+  .reco-country { font-size: clamp(1.2rem, 5vw, 1.6rem); }
+}
+
+
+/* ===== Filière biosourcée — badge brutaliste sous le bandeau projet ===== */
+.project-filiere {
+  display: inline-flex; align-items: baseline; gap: 0.9em;
+  margin-top: 0.7rem; padding: 0.45rem 0.85rem;
+  background: var(--ink); color: var(--paper);
+  font-size: 9pt; letter-spacing: 0.22em; text-transform: uppercase;
+}
+.pf-label { font-weight: 500; opacity: 0.62; }
+.pf-value { font-weight: 800; letter-spacing: 0.18em; }
+
+/* ===== Récit : épigraphe Transformer ne pas Réhabiliter ===== */
+.recit-epigraph { max-width: 820px; margin: 0 auto 4rem; padding: 0; }
+.recit-epigraph .re-statement {
+  font-size: clamp(2.4rem, 6vw, 4.4rem);
+  font-weight: 800; letter-spacing: -0.025em;
+  line-height: 0.92; text-transform: uppercase;
+  margin: 0; color: var(--ink);
+}
+.recit-epigraph .re-statement .re-ne {
+  display: inline-block; margin: 0 0.15em;
+  font-weight: 400; color: var(--mid);
+  font-size: 0.78em; vertical-align: 0.05em;
+}
+.recit-epigraph .re-gloss {
+  font-size: 11pt; line-height: 1.55; color: var(--mid);
+  margin: 1.4rem 0 0; padding-top: 1.1rem;
+  border-top: 1pt solid var(--ink);
+  font-style: italic;
+}
+
+
+/* ===== Page Agence en chiffres ===== */
+.agence-chiffres {
+  padding: 10vh 7vw 8vh; background: var(--paper);
+  page-break-before: always; break-before: page;
+  border-top: 1pt solid var(--ink);
+}
+.ac-head {
+  display: flex; justify-content: space-between; align-items: baseline;
+  border-bottom: 1pt solid var(--ink);
+  padding-bottom: 1.2rem; margin-bottom: 4.5rem; gap: 2rem;
+}
+.ac-title {
+  font-size: clamp(2.5rem, 7vw, 5rem);
+  font-weight: 800; letter-spacing: -0.02em;
+  line-height: 0.9; text-transform: uppercase; margin: 0;
+}
+.ac-meta { font-size: 9pt; letter-spacing: 0.3em; text-transform: uppercase; color: var(--mid); }
+.ac-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 3rem 2.5rem; margin-bottom: 5rem;
+}
+.ac-cell .ac-num {
+  display: block; font-size: clamp(3rem, 8vw, 5.5rem);
+  font-weight: 800; letter-spacing: -0.03em; line-height: 0.85; color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+.ac-cell .ac-unit { font-size: 1.1rem; font-weight: 600; margin-left: 0.3em; }
+.ac-cell .ac-lbl {
+  display: block; margin-top: 0.8rem; font-size: 9.5pt;
+  letter-spacing: 0.22em; text-transform: uppercase; color: var(--mid); font-weight: 600;
+}
+.ac-signataires {
+  border-top: 1pt solid var(--ink); padding-top: 2rem; margin-top: 2rem;
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2.5rem;
+}
+.ac-signataire .ac-nom { font-weight: 800; font-size: 1.05rem; letter-spacing: 0.01em; }
+.ac-signataire .ac-role {
+  display: block; margin-top: 0.3rem; font-size: 9pt;
+  letter-spacing: 0.22em; text-transform: uppercase; color: var(--mid);
+}
+
+/* ===== Page de clôture ===== */
+.cloture {
+  padding: 14vh 7vw 10vh; background: var(--paper);
+  page-break-before: always; break-before: page;
+  border-top: 1pt solid var(--ink);
+}
+.cloture-statement {
+  font-size: clamp(2.2rem, 6vw, 4.2rem);
+  font-weight: 800; letter-spacing: -0.025em;
+  line-height: 1; text-transform: uppercase;
+  max-width: 1000px; margin: 0 0 3rem; color: var(--ink);
+}
+.cloture-gloss {
+  font-size: 13pt; line-height: 1.65; color: var(--ink);
+  max-width: 720px; margin: 0 0 4rem;
+}
+.cloture-footer {
+  display: flex; justify-content: space-between; align-items: baseline;
+  border-top: 1pt solid var(--ink); padding-top: 1.2rem;
+  font-size: 9pt; letter-spacing: 0.28em; text-transform: uppercase; color: var(--mid);
+}
+
+
+/* ===== Colophon brutaliste — fin du document ===== */
+.colophon {
+  padding: 6vh 7vw; background: var(--ink); color: var(--paper);
+  page-break-before: always;
+}
+.colophon-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2.5rem; align-items: baseline;
+}
+.colo-cell .colo-lbl {
+  display: block; font-size: 8.5pt; letter-spacing: 0.3em;
+  text-transform: uppercase; color: rgba(245,243,239,0.55); margin-bottom: 0.6rem;
+}
+.colo-cell .colo-val {
+  display: block; font-size: 1.05rem; font-weight: 700; letter-spacing: 0.01em;
+}
+.colophon h2 {
+  font-size: clamp(2rem, 5vw, 3.6rem); font-weight: 800;
+  letter-spacing: -0.02em; text-transform: uppercase; line-height: 0.95;
+  margin: 0 0 2.5rem;
+}
+
+/* ===== Credit photos sous conference-series ===== */
+.cs-photo-credits {
+  margin-top: 0.6rem;
+  font-size: 8pt; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--light); text-align: right;
+}
+
+
+
+
+
+
+
+/* ===== GIFs transformation-method : pleine largeur, header masqué ===== */
+.transformation-method {
+  margin: 1.5rem 0 2rem !important;
+  max-width: none !important;
+  padding: 0 !important;
+}
+.tm-head { display: none !important; }
+.tm-content { display: block !important; }
+.tm-content img {
+  width: 100% !important;
+  height: auto !important;
+  display: block !important;
+  max-width: none !important;
+}
+
+/* ===== Récit comme intercalaire de chapitre — espace généreux ===== */
+.recit-intercalaire {
+  background: var(--paper);
+  padding: 8vh 7vw 6vh;
+  margin: 2rem 0 0;
+  border-top: 1pt solid var(--ink);
+  border-bottom: 1pt solid var(--ink);
+}
+.recit-intercalaire .recit-meta::before {
+  content: "Intercalaire · ";
+  color: var(--mid);
+}
+
+
+/* ===== Badge Transformation (CMI, Coquibus) ===== */
+.project-transform {
+  display: inline-flex; align-items: baseline; gap: 0.7em;
+  margin-top: 0.7rem; padding: 0.4rem 0.75rem;
+  background: var(--paper); color: var(--ink);
+  border: 1.5px solid var(--ink);
+  font-size: 9pt; letter-spacing: 0.22em; text-transform: uppercase;
+}
+.pt-label { font-weight: 800; }
+.pt-detail { font-weight: 400; color: var(--mid); letter-spacing: 0.12em; }
+.project-transform a { color: var(--gold); text-decoration: none; font-weight: 700; margin-left: 0.4em; }
+.project-transform a:hover { color: var(--ink); }
+
+/* ===== CARTOUCHE V3 — pleine page, 3 blocs alignés (design Designer+Narrateur) ===== */
+.cart-v3 {
+  grid-column: 1 / -1;
+  max-width: none;
+  margin: 2.5rem 0 0;
+  padding: 0;
+  font-family: inherit;
+}
+
+/* === PRÉAMBULE === */
+.cart-v3 .v3-preamble { margin-bottom: 2rem; }
+.cart-v3 .v3-preamble > * + * { margin-top: 1.5rem; }
+
+/* RECONNAISSANCE (inline list) */
+.cart-v3 .v3-bloc-reco {
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--subtle);
+  border-bottom: 1px solid var(--subtle);
+}
+.cart-v3 .v3-bloc-reco .v3-bloc-title {
+  font-size: 10px; letter-spacing: 0.18em;
+  text-transform: uppercase; font-weight: 600;
+  color: var(--gold); margin-bottom: 0.75rem;
+}
+.cart-v3 .v3-bloc-reco .v3-bloc-title::before {
+  content: ""; display: inline-block;
+  width: 6px; height: 6px;
+  background: var(--gold);
+  margin-right: 0.6em;
+  vertical-align: 0.05em;
+}
+.cart-v3 .v3-bloc-reco ul {
+  list-style: none; padding: 0; margin: 0;
+  font-size: 14px; line-height: 1.55;
+}
+.cart-v3 .v3-bloc-reco li {
+  display: inline; color: var(--ink); font-weight: 500;
+}
+.cart-v3 .v3-bloc-reco li + li::before {
+  content: " · "; color: var(--light); font-weight: 300;
+}
+.cart-v3 .v3-bloc-reco li strong { font-weight: 600; }
+.cart-v3 .v3-bloc-reco li .year { color: var(--mid); font-weight: 400; margin-left: 0.3em; }
+.cart-v3 .v3-bloc-reco li .status { color: var(--mid); margin-left: 0.4em; font-style: italic; }
+.cart-v3 .v3-bloc-reco .more {
+  margin-top: 0.7rem;
+  font-size: 10px; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--mid);
+}
+.cart-v3 .v3-bloc-reco .more a { color: var(--gold); text-decoration: none; font-weight: 600; }
+
+/* RÉCIT (fond ink) */
+.cart-v3 .v3-bloc-recit {
+  background: var(--ink); color: var(--paper);
+  padding: 2.5rem 2.5rem;
+}
+.cart-v3 .v3-bloc-recit .v3-recit-rule {
+  width: 32px; height: 1px; background: var(--gold);
+  margin-bottom: 1.5rem;
+}
+.cart-v3 .v3-bloc-recit .v3-bloc-title {
+  font-size: 10px; letter-spacing: 0.18em;
+  text-transform: uppercase; font-weight: 600;
+  color: var(--light); margin-bottom: 0.8rem;
+}
+.cart-v3 .v3-bloc-recit p {
+  font-size: 22px; font-weight: 300; font-style: italic;
+  line-height: 1.55; max-width: 60ch;
+  margin: 0; color: var(--paper);
+}
+.cart-v3 .v3-bloc-recit a {
+  display: inline-block; margin-top: 1.5rem;
+  font-size: 11px; letter-spacing: 0.18em;
+  text-transform: uppercase; font-weight: 500;
+  color: var(--light); text-decoration: none;
+  font-style: normal;
+}
+.cart-v3 .v3-bloc-recit a::before { content: "— "; }
+
+/* ===== CARTOUCHE V6 — bandeau horizontal data-forward (option E) ===== */
+.cart-v3 {
+  grid-column: 1 / -1;
+  max-width: none;
+  margin: 2.5rem 0 0;
+  padding: 0;
+  font-family: inherit;
+}
+.cart-v3 .micro {
+  font-size: 10px; letter-spacing: 0.2em;
+  text-transform: uppercase; font-weight: 700;
+  color: var(--light); display: block; margin-bottom: 0.3rem;
+}
+.cart-v3 .v3-bandeau {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.5fr;
+  gap: 2.5rem;
+  padding: 2.5rem 0;
+  border-top: 2px solid var(--ink);
+  border-bottom: 2px solid var(--ink);
+  align-items: end;
+}
+.cart-v3 .v3-cell .big {
+  display: block;
+  font-size: 38px; font-weight: 700;
+  letter-spacing: -0.02em; line-height: 1;
+  color: var(--ink); margin-bottom: 0.45rem;
+  font-variant-numeric: tabular-nums;
+}
+.cart-v3 .v3-cell.moa .big {
+  font-size: 24px; line-height: 1.15;
+  font-variant-numeric: normal;
+}
+.cart-v3 .v3-cell.phase .big {
+  font-size: 22px; line-height: 1.2;
+  font-variant-numeric: normal;
+}
+.cart-v3 .v3-cell .sub {
+  font-size: 14px; color: var(--mid);
+  font-weight: 500; line-height: 1.4;
+  display: block;
+}
+.cart-v3 .v3-prg {
+  margin-top: 1.5rem;
+  font-size: 19px; font-weight: 600;
+  color: var(--ink); line-height: 1.45;
+}
+.cart-v3 .v3-prg .micro { display: inline-block; margin-right: 0.6em; margin-bottom: 0; vertical-align: 0.18em; }
+.cart-v3 a { color: var(--gold); text-decoration: none; font-weight: 700; }
+.cart-v3 a:hover { text-decoration: underline; }
+@media (max-width: 900px) {
+  .cart-v3 .v3-bandeau { grid-template-columns: 1fr 1fr; row-gap: 2rem; }
+  .cart-v3 .v3-cell .big { font-size: 30px; }
+}
+@media (max-width: 560px) {
+  .cart-v3 .v3-bandeau { grid-template-columns: 1fr; }
+}
+
+
+/* === Intercalaires renforces (narrateur) === */
+.chapter-opener {
+  border-top: 6px solid var(--ink) !important;
+  padding: 9rem 8vw 7rem !important;
+  min-height: 80vh;
+  display: flex; flex-direction: column; justify-content: center;
+  max-width: none !important;
+  page-break-before: always;
+}
+.chapter-opener .kicker {
+  display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap;
+  margin: 0 0 4rem !important;
+  font-size: 12px !important;
+  letter-spacing: 0.22em !important;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.chapter-opener .kicker-chip {
+  background: var(--ink); color: var(--gold);
+  padding: 10px 18px;
+  font-weight: 800;
+}
+.chapter-opener .kicker-sub {
+  color: var(--ink);
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  font-size: 16px;
+}
+.chapter-opener::before {
+  content: attr(data-num);
+  display: block;
+  font-size: clamp(160px, 22vw, 320px);
+  font-weight: 800;
+  line-height: 0.85;
+  letter-spacing: -0.05em;
+  color: var(--ink);
+  margin: 0 0 1.5rem -8px;
+}
+.chapter-opener h2 {
+  font-size: clamp(64px, 8vw, 112px) !important;
+  font-weight: 700 !important;
+  line-height: 0.95 !important;
+  letter-spacing: -0.03em !important;
+  margin: 0 0 3rem !important;
+  color: var(--ink);
+  max-width: 22ch;
+}
+.chapter-opener .chapter-intro {
+  max-width: 60rem;
+  display: flex; flex-direction: column; gap: 1.5rem;
+}
+.chapter-opener .chapter-intro p { margin: 0; color: var(--ink); }
+.chapter-opener .chapter-intro p.thesis {
+  font-size: clamp(22px, 1.8vw, 28px);
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: -0.005em;
+}
+.chapter-opener .chapter-intro p.examples {
+  font-size: clamp(16px, 1.2vw, 19px);
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--mid);
+}
+.chapter-opener .chapter-intro p.conclusion {
+  font-size: clamp(17px, 1.3vw, 20px);
+  font-weight: 600;
+  line-height: 1.5;
+  border-top: 1px solid var(--subtle);
+  padding-top: 1.5rem;
+  margin-top: 0.5rem;
+}
+@media (max-width: 760px) {
+  .chapter-opener { padding: 5rem 6vw 4rem !important; min-height: auto; }
+  .chapter-opener::before { font-size: clamp(100px, 24vw, 160px); }
+}
+
+
+/* GIFs schemas transformation : 1er slot mosaique, taille reduite */
+.v3-hero.v3-hero-schema {
+  aspect-ratio: auto;
+  max-width: 520px;
+  margin: 0 auto 16px;
+  background: var(--paper);
+  border: 1px solid var(--subtle);
+}
+.v3-hero.v3-hero-schema img.schema-gif {
+  width: 100%; height: auto;
+  display: block;
+  padding: 0;
+  background: var(--paper);
+}
+/* GIF schema dans un slot v3-slot regulier (pas v3-hero) */
+.v3-slot img.schema-gif {
+  width: 100%; height: 100%;
+  object-fit: contain !important;
+  background: var(--paper);
+  padding: 0.5rem;
+  display: block;
+  transform: none !important;
+}
+/* Coquibus : GIF nettoye, plus besoin de mix-blend */
+
+
+
+/* Video apres hero (AVIA, Montreuil) */
+.v3-video-block {
+  width: 100%;
+  margin: 12px 0;
+  background: var(--ink);
+  position: relative;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+}
+.v3-video-block video {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+}
+/* Video EN HERO (CMI) : meme dimensions qu'un v3-hero */
+.v3-hero.v3-hero-video {
+  width: 100%; aspect-ratio: 16/9; margin-bottom: 12px;
+  position: relative; overflow: hidden;
+  background: var(--ink);
+}
+.v3-hero.v3-hero-video video {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+
+/* Editor leger */
+.le-toolbar {
+  position: fixed; top: 16px; right: 16px; z-index: 1000;
+  display: flex; gap: 8px;
+  background: var(--ink); color: white; padding: 10px 14px;
+  font-family: inherit; font-size: 11px;
+  letter-spacing: 0.18em; text-transform: uppercase; font-weight: 700;
+}
+.le-toolbar button {
+  background: transparent; border: 1px solid rgba(255,255,255,0.4);
+  color: white; padding: 6px 12px; cursor: pointer;
+  font-family: inherit; font-size: 11px;
+  letter-spacing: 0.16em; text-transform: uppercase; font-weight: 700;
+}
+.le-toolbar button.on { background: var(--gold); border-color: var(--gold); color: var(--ink); }
+.le-toolbar button:hover { background: rgba(255,255,255,0.1); }
+.le-toolbar .info { font-size: 10px; color: rgba(255,255,255,0.7); margin-left: 8px; max-width: 320px; line-height: 1.4; letter-spacing: 0; text-transform: none; font-weight: 400; }
+
+body.le-edit .v3-project-grid {
+  outline: 2px dashed rgba(181,142,46,0.3);
+  outline-offset: 4px;
+}
+body.le-edit .v3-project-grid.le-drop {
+  outline: 4px dashed var(--gold);
+  background: rgba(181,142,46,0.08);
+}
+body.le-edit .v3-hero, body.le-edit .v3-slot { position: relative; cursor: grab; }
+body.le-edit .v3-hero img, body.le-edit .v3-slot img { cursor: grab; transform: none !important; }
+body.le-edit .v3-hero img.panning, body.le-edit .v3-slot img.panning { cursor: grabbing; }
+body.le-edit .v3-hero.le-dragging, body.le-edit .v3-slot.le-dragging { opacity: 0.4; }
+body.le-edit .v3-hero.le-swap, body.le-edit .v3-slot.le-swap { outline: 3px solid var(--gold); outline-offset: -3px; }
+
+.le-del {
+  display: none;
+  position: absolute;
+  top: 12px; right: 12px;
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: #c1272d; color: white;
+  border: 3px solid white;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+  font-size: 24px; font-weight: 800;
+  line-height: 38px; text-align: center;
+  cursor: pointer; z-index: 100;
+  font-family: inherit; padding: 0;
+}
+.le-del:hover { background: #8a1c20; transform: scale(1.1); }
+body.le-edit .le-del { display: block !important; }
+
+.le-add-grid {
+  display: none;
+  width: 100%;
+  padding: 1.25rem;
+  margin: 1rem 0;
+  background: var(--gold);
+  color: var(--ink);
+  border: none;
+  font-family: inherit;
+  font-size: 13px; font-weight: 700;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  cursor: pointer;
+  text-align: center;
+}
+.le-add-grid:hover { background: #d4a635; }
+body.le-edit .le-add-grid { display: block; }
+
+.le-toast {
+  position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
+  background: var(--ink); color: white; border: 2px solid var(--gold);
+  padding: 12px 24px; font-size: 12px;
+  letter-spacing: 0.18em; text-transform: uppercase; font-weight: 700;
+  z-index: 999; opacity: 0; transition: opacity 0.2s; pointer-events: none;
+}
+.le-toast.show { opacity: 1; }
+
+</style>
+</head>
+<body class="">
+
+<div class="le-toolbar" id="le-toolbar">
+  <button id="le-toggle" type="button" class="on">Mode édition : ON</button>
+  <button id="le-save" type="button" style="background: var(--gold) !important; color: var(--ink) !important; border-color: var(--gold) !important;">💾 SAUVEGARDER FICHIER</button>
+  <span class="info">Glisser image = pan · MAJ+glisser = permuter · "+" pour ajouter · "×" pour supprimer</span>
+</div>
+<script>
+(function(){
+  let fh = null;
+  document.getElementById('le-save').addEventListener('click', async () => {
+    document.body.classList.remove('le-edit');
+    document.querySelectorAll('.le-del, .le-add-grid').forEach(el => el.remove());
+    document.querySelectorAll('input[type="file"]').forEach(el => el.remove());
+    const html = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+    document.body.classList.add('le-edit');
+    if (window.showSaveFilePicker) {
+      try {
+        if (!fh) {
+          fh = await window.showSaveFilePicker({
+            suggestedName: 'NZI-Travelling 2025-2026 - FR - TEST-VIDEOS.html',
+            types: [{ description: 'HTML', accept: { 'text/html': ['.html'] } }]
+          });
+        }
+        const w = await fh.createWritable();
+        await w.write(html); await w.close();
+        const t = document.getElementById('le-toast');
+        if (t) { t.textContent = '✓ Sauvegardé sur disque'; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'), 2500); }
+        return;
+      } catch (e) { if (e.name !== 'AbortError') console.error(e); }
+    }
+    const blob = new Blob([html], {type:'text/html'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = 'NZI-Travelling 2025-2026 - FR - TEST-VIDEOS.html';
+    a.click();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+  });
+})();
+</script>
+<div class="le-toast" id="le-toast">✓ Sauvegardé sur disque</div>
+<script>
+(function(){
+  const toggleBtn = document.getElementById('le-toggle');
+  const toast = document.getElementById('le-toast');
+  let editOn = false;
+
+  function showToast(msg) {
+    toast.textContent = msg;
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 1800);
+  }
+
+  function applyMode() {
+    document.body.classList.toggle('le-edit', editOn);
+    toggleBtn.textContent = 'Mode édition : ' + (editOn ? 'ON' : 'OFF');
+    toggleBtn.classList.toggle('on', editOn);
+    if (editOn) {
+      document.querySelectorAll('.v3-slot img, .v3-hero img').forEach(img => {
+        img.style.setProperty('transform', 'none', 'important');
+      });
+      injectButtons();
+    }
+  }
+  toggleBtn.addEventListener('click', () => { editOn = !editOn; applyMode(); });
+
+  function injectButtons() {
+    // Delete buttons
+    document.querySelectorAll('.v3-hero, .v3-slot').forEach(slot => {
+      if (slot.querySelector('.le-del')) return;
+      // Skip if slot contains video
+      if (slot.querySelector('video')) return;
+      const b = document.createElement('button');
+      b.className = 'le-del'; b.type = 'button'; b.innerHTML = '×';
+      slot.appendChild(b);
+    });
+    // Add buttons per grid
+    document.querySelectorAll('.v3-project-grid').forEach(grid => {
+      if (grid.nextElementSibling && grid.nextElementSibling.classList && grid.nextElementSibling.classList.contains('le-add-grid')) return;
+      const input = document.createElement('input');
+      input.type = 'file'; input.accept = 'image/*'; input.multiple = true; input.style.display = 'none';
+      const btn = document.createElement('button');
+      btn.className = 'le-add-grid'; btn.type = 'button';
+      btn.textContent = '+ Ajouter des photos à ce projet';
+      btn.addEventListener('click', () => input.click());
+      input.addEventListener('change', async () => {
+        const files = Array.from(input.files || []);
+        let added = 0;
+        for (const f of files) {
+          if (!f.type.startsWith('image/')) continue;
+          const dataUrl = await new Promise((res, rej) => {
+            const r = new FileReader();
+            r.onload = () => res(r.result); r.onerror = rej;
+            r.readAsDataURL(f);
+          });
+          const id = 'le-add-' + Date.now() + '-' + Math.random().toString(36).slice(2,6);
+          const slot = document.createElement('div');
+          slot.className = 'v3-slot v3-slot-43'; slot.id = id;
+          slot.innerHTML = '<a class="v3-open" href="#' + id + '"><img src="' + dataUrl + '" alt="' + f.name.replace(/"/g, '&quot;') + '"></a>';
+          const rows = grid.querySelectorAll('.v3-row');
+          const lastRow = rows[rows.length - 1];
+          if (lastRow && lastRow.children.length < 3) lastRow.appendChild(slot);
+          else {
+            const newRow = document.createElement('div');
+            newRow.className = 'v3-row v3-row-3'; newRow.appendChild(slot);
+            grid.appendChild(newRow);
+          }
+          added++;
+        }
+        injectButtons();
+        input.value = '';
+        showToast(added + ' photo' + (added>1?'s':'') + ' ajoutée' + (added>1?'s':''));
+      });
+      grid.parentNode.insertBefore(btn, grid.nextSibling);
+      grid.parentNode.insertBefore(input, btn);
+    });
+  }
+
+  // Click sur × supprime
+  document.addEventListener('click', e => {
+    const del = e.target.closest('.le-del');
+    if (del) {
+      e.preventDefault(); e.stopPropagation(); e.stopImmediatePropagation();
+      const slot = del.closest('.v3-hero, .v3-slot');
+      if (slot && confirm('Supprimer cette photo ?')) {
+        slot.remove();
+        showToast('Photo supprimée');
+      }
+    }
+  }, true);
+
+  // Pan ou Reorder selon Shift
+  document.addEventListener('mousedown', e => {
+    if (!editOn) return;
+    if (e.target.closest('.le-del, .le-add-grid, .le-toolbar, video')) return;
+    const slot = e.target.closest('.v3-hero, .v3-slot');
+    if (!slot || slot.querySelector('video')) return;
+    const grid = slot.closest('.v3-project-grid');
+    if (!grid) return;
+    const img = slot.querySelector('img');
+    if (!img) return;
+    e.preventDefault();
+    const shiftHeld = e.shiftKey;
+    const startX = e.clientX, startY = e.clientY;
+
+    if (shiftHeld) {
+      slot.classList.add('le-dragging');
+      const onMove = (ev) => {
+        const el = document.elementFromPoint(ev.clientX, ev.clientY);
+        const tgt = el ? el.closest('.v3-hero, .v3-slot') : null;
+        grid.querySelectorAll('.le-swap').forEach(t => t.classList.remove('le-swap'));
+        if (tgt && tgt !== slot && grid.contains(tgt)) tgt.classList.add('le-swap');
+      };
+      const onUp = () => {
+        window.removeEventListener('mousemove', onMove);
+        window.removeEventListener('mouseup', onUp);
+        slot.classList.remove('le-dragging');
+        const tgt = grid.querySelector('.le-swap');
+        grid.querySelectorAll('.le-swap').forEach(t => t.classList.remove('le-swap'));
+        if (!tgt || tgt === slot) return;
+        const tmp = slot.innerHTML;
+        slot.innerHTML = tgt.innerHTML;
+        tgt.innerHTML = tmp;
+        showToast('Photos permutées');
+      };
+      window.addEventListener('mousemove', onMove);
+      window.addEventListener('mouseup', onUp);
+    } else {
+      img.classList.add('panning');
+      const cur = img.style.objectPosition || '50% 50%';
+      const m = cur.match(/([\d\.]+)%\s+([\d\.]+)%/);
+      const sPx = m ? parseFloat(m[1]) : 50;
+      const sPy = m ? parseFloat(m[2]) : 50;
+      const onMove = (ev) => {
+        const r = slot.getBoundingClientRect();
+        const dx = (ev.clientX - startX) / r.width * 100;
+        const dy = (ev.clientY - startY) / r.height * 100;
+        const nx = Math.max(0, Math.min(100, sPx - dx));
+        const ny = Math.max(0, Math.min(100, sPy - dy));
+        img.style.objectPosition = nx.toFixed(1) + '% ' + ny.toFixed(1) + '%';
+      };
+      const onUp = () => {
+        window.removeEventListener('mousemove', onMove);
+        window.removeEventListener('mouseup', onUp);
+        img.classList.remove('panning');
+      };
+      window.addEventListener('mousemove', onMove);
+      window.addEventListener('mouseup', onUp);
+    }
+  });
+
+  // Click navigation bloquee en edit mode
+  document.addEventListener('click', e => {
+    if (!editOn) return;
+    const a = e.target.closest('a.v3-open');
+    if (a) { e.preventDefault(); e.stopPropagation(); }
+  }, true);
+})();
+</script>
+
+
+<nav class="toc-nav" id="toc-nav" aria-label="Table des matières">
+  <button class="toc-toggle" id="toc-toggle" aria-expanded="false" aria-label="Ouvrir le sommaire">☰</button>
+  <div class="toc-panel" role="navigation" aria-label="Contents">
+    <div class="toc-panel-header">Contents</div>
+    <ul class="toc-list">
+      <li class="toc-chapter"><a href="#cover">Cover</a></li>
+      <li class="toc-chapter"><a href="#ch-equipements">I — Public Amenities</a>
+        <ul class="toc-projects">
+          <li><a href="#proj-python">Python-Duvernois</a></li>
+          <li><a href="#proj-coeur">Cœur des Sources</a></li>
+          <li><a href="#proj-stdiz">Saint-Dizier</a></li>
+          <li><a href="#proj-althea">Gymnase Althéa Laurin</a></li>
+          <li><a href="#proj-cmi">Musée des religions — CMI</a></li>
+          <li><a href="#proj-numerique">Musée du Numérique</a></li>
+          <li><a href="#proj-nuages">Médiathèque Nuages</a></li>
+        </ul>
+      </li>
+      <li class="toc-chapter"><a href="#ch-siege">II — Headquarters</a>
+        <ul class="toc-projects">
+          <li><a href="#proj-ccbn">CCBN Brie Nangissienne</a></li>
+        </ul>
+      </li>
+      <li class="toc-chapter"><a href="#ch-transformations">III — Transformations</a>
+        <ul class="toc-projects">
+          <li><a href="#proj-nollet">Rue Nollet</a></li>
+          <li><a href="#proj-bertelotte">Bertelotte — site Avia</a></li>
+        </ul>
+      </li>
+      <li class="toc-chapter"><a href="#ch-ecoles">IV — Schools &amp; crèches</a>
+        <ul class="toc-projects">
+          <li><a href="#proj-vaureal">Vauréal</a></li>
+          <li><a href="#proj-coquibus">Coquibus — Evry</a></li>
+          <li><a href="#proj-langevin">Langevin — Nanterre</a></li>
+        </ul>
+      </li>
+      <li class="toc-chapter"><a href="#ch-logements">V — Housing</a>
+        <ul class="toc-projects">
+          <li><a href="#proj-buzenval">Buzenval</a></li>
+          <li><a href="#proj-village">Village des Athlètes</a></li>
+          <li><a href="#proj-montreuil">Montreuil</a></li>
+        </ul>
+      </li>
+      <li class="toc-chapter"><a href="#ch-ouverture">VI — Beyond Paris</a>
+        <ul class="toc-projects">
+          <li><a href="#proj-belvedere">ZAC Belvédère</a></li>
+        </ul>
+      </li>
+      <li class="toc-chapter"><a href="#reconnaissances">Awards</a></li>
+    </ul>
+  </div>
+</nav>
+<!-- ============ COVER ============ -->
+<section class="v5-cover" id="cover"><div class="cover-eyebrow"><span class="cover-eyebrow-brand">NZI Architectes Urbanistes</span><span class="cover-eyebrow-year">Travel journal · 2025–2026</span></div>
+<div class="cover-hero"><img src="descendez lentement - Cover.JPG" alt="Descendez lentement — NZI chantier"></div>
+<div class="v5-cover-top">
+<span>NZI Architectes Urbanistes</span>
+<span>Paris · 2012</span>
+</div>
+<div class="v5-cover-title">
+<div class="v5-cover-kicker">Journal 2025-2026</div>
+<h1 class="v5-cover-h1"><span class="v2-char" style="--ci: 0;">T</span><span class="v2-char" style="--ci: 1;">r</span><span class="v2-char" style="--ci: 2;">a</span><span class="v2-char" style="--ci: 3;">v</span><span class="v2-char" style="--ci: 4;">e</span><span class="v2-char" style="--ci: 5;">l</span><span class="v2-char" style="--ci: 6;">l</span><span class="v2-char" style="--ci: 7;">i</span><span class="v2-char" style="--ci: 8;">n</span><span class="v2-char" style="--ci: 9;">g</span></h1>
+<div class="v5-cover-subtitle">Dix-sept opérations de transformation, de logement social et d'équipement public mixte — livrées, en chantier ou à l'étude.</div>
+</div>
+<div class="v5-cover-bottom">
+<span>26 rue Miguel Hidalgo · 75019 Paris · nzi.fr</span>
+<span class="v5-cover-arrow">↓</span>
+</div>
+</section>
+<!-- ============ OUVERTURE ============ -->
+<section class="ouverture">
+<div class="kicker">Ouverture</div>
+<p class="lead"><strong>La réponse attendue était toujours la même : raser, recommencer.</strong> Nous avons fait le choix inverse. Pas par idéologie — par lecture. Lire ce qu'il y a déjà avant de décider ce qui manque.</p>
+<p class="lead"><em>Ce carnet n'est pas une rétrospective. C'est un travelling : dix-sept opérations qui nous occupent en 2025 et 2026 — livrées, en chantier ou à l'étude. Construites autour d'une seule conviction : on construit mieux quand on construit moins.</em></p>
+<p class="lead">Travelling, au cinéma — la caméra qui se déplace sans couper. Elle traverse, elle ne remplace pas. Nous faisons pareil avec la ville.</p>
+<p class="lead">NZI · Paris · 2012. Ces dix-sept projets ne sont pas la somme de notre travail : ils en sont la part vivante aujourd'hui — celle qui est sur nos tables, sur nos chantiers, dans nos jurys.</p>
+<div class="signature">NZI · mai 2026</div>
+</section>
+<section class="agence-chiffres" id="agence"><header class="ac-head"><h2 class="ac-title">The practice in figures</h2><span class="ac-meta">NZI · Paris · depuis 2012</span></header><div class="ac-grid"><div class="ac-cell"><span class="ac-num">2012</span><span class="ac-lbl">Founded</span></div><div class="ac-cell"><span class="ac-num">20<span class="ac-unit">bâtiments</span></span><span class="ac-lbl">Delivered since 2012</span></div><div class="ac-cell"><span class="ac-num">17<span class="ac-unit">opérations</span></span><span class="ac-lbl">Ongoing · 2025-2026</span></div><div class="ac-cell"><span class="ac-num">15<span class="ac-unit">architectes</span></span><span class="ac-lbl">Current headcount</span></div><div class="ac-cell"><span class="ac-num">22</span><span class="ac-lbl">Awards 2017-2026</span></div><div class="ac-cell"><span class="ac-num">31</span><span class="ac-lbl">Lectures &amp; exhibitions</span></div></div><div class="ac-signataires"><div class="ac-signataire"><span class="ac-nom">Sandra de Giorgio</span><span class="ac-role">Co-founder · architect DPLG · director</span></div><div class="ac-signataire"><span class="ac-nom">Gianluca Gaudenzi</span><span class="ac-role">Co-founder · architect DPLG · director</span></div></div></section>
+<!-- ============ DISTINCTIONS ============ -->
+
+<!-- ============ I — ÉQUIPEMENTS ============ -->
+<section class="chapter-opener" id="ch-equipements" data-num="I">
+  <div class="kicker"><span class="kicker-chip">I — Public Amenities</span><span class="kicker-sub">sport · culture · early childhood</span></div>
+  <h2>Public Amenities.</h2>
+  <div class="chapter-intro">
+    <p class="thesis">Six public commissions. Six times the same question: how do you build something that outlasts its brief?</p>
+    <p class="examples">Python-Duvernois stacks gymnasiums to put sport on the roof. Cœur des Sources brings together a conservatory, gymnasium and auditorium under a single roof structure. Althéa builds a dance studio in prefabricated timber and installs it in three months. Vauréal houses early childhood facilities in a timber structure with stone cladding. The Musée du Numérique transforms a cinema into a cultural hub. The Médiathèque des Tours Nuages settles at the foot of Émile Aillaud's towers.</p>
+    <p class="conclusion">A shared material palette: bio-sourced timber, local stone, hemp insulation. No catalogue of programmes — one gesture, adapted six times to the city it meets.</p>
+  </div>
+</section>
+
+<article class="project"><header class="project-header">
+<div class="project-title">
+<div class="project-num-line">
+<span class="project-num">01</span>
+<span class="project-num-label">Équipement mixte · chantier</span>
+</div>
+<h3 id="proj-python">Python-Duvernois</h3>
+<div class="program-line">Sports complex · stacked gymnasiums and sport on the roof · Paris 20<sup>e</sup></div>
+<div class="project-prizes">Lauréat APEX Paris 2025<span class="pp-sep">·</span>AMI Bâti Sobre ADEME<span class="pp-sep">·</span><span class="pp-more">3 distinctions — <a href="#reconnaissances">see</a></span></div>
+<div class="v3-perfo-block"><div class="v3-perfo-key">HQE</div><div class="v3-perfo-value">Construction Bois · BDF Argent</div><div class="v3-perfo-key">Label</div><div class="v3-perfo-value">E3C2 · Label Biosourcé NIV 3</div><div class="v3-perfo-key">Structure</div><div class="v3-perfo-value">CLT + ossature bois · 10 000 m²</div></div>
+<div class="v3-distinctions-block"><div class="v3-distinctions-key">Awards &amp; distinctions</div><div class="v3-distinctions-list"><div class="v3-dist-item"><span class="v3-dist-status">Winner</span>APEX (Architectures Parisiennes Exemplaires) 2025</div><div class="v3-dist-item"><span class="v3-dist-status">Winner</span>AMI Bâti Sobre (ADEME) 2025</div><div class="v3-dist-item"><span class="v3-dist-status">Inscrit</span>ZAC Python-Duvernois, lauréate du Trophée BBCA Quartier Bas Carbone 2024 (SEMAPA aménageur)</div></div></div>
+</div>
+<div class="cart-v3"><div class="v3-preamble"><div class="v3-bloc-reco"><div class="v3-bloc-title">Awards · 3 distinctions</div><ul><li><strong>AMI Bâti Sobre</strong> <span class="year">2025</span><span class="status">— Lauréat ADEME</span></li><li><strong>APEX Paris</strong> <span class="year">2025</span><span class="status">— Lauréat</span></li><li><strong>BBCA Quartier Bas Carbone</strong> <span class="year">2024</span><span class="status">— Lauréat</span></li></ul><div class="more"><a href="#reconnaissances">See index →</a></div></div></div><div class="v3-bandeau"><div class="v3-cell moa"><span class="micro">Client</span><span class="big">Ville de Paris · SEMAPA (aménageur)</span><span class="sub">Lauréat concours</span></div><div class="v3-cell budget"><span class="micro">Budget</span><span class="big">36 M€</span><span class="sub">3 600 €/m²</span></div><div class="v3-cell surface"><span class="micro">Floor area</span><span class="big">10 000 m²</span><span class="sub">SDP</span></div><div class="v3-cell phase"><span class="micro">Phase</span><span class="big">Projet en cours</span><span class="sub">livraison 2T 2027 · Structure bois · 60 kg bois/m² SDP</span></div></div></div></header><div class="v3-project-grid"><div class="v3-hero" id="v3-python-0"><a class="v3-open" href="#v3-python-0"><img src="../media/PYTHON-DUVERNOIS_001.jpg" alt="PYTHON-DUVERNOIS_001.jpg" style="transform: none !important;"></a></div><div class="v3-row v3-row-3"><div class="v3-slot v3-slot-43" id="v3-python-1"><a class="v3-open" href="#v3-python-1"><img src="../media/PYTHON-DUVERNOIS_002.jpg" alt="PYTHON-DUVERNOIS_002.jpg" style="transform: none !important;"></a></div><div class="v3-slot v3-slot-43" id="v3-python-2"><a class="v3-open" href="#v3-python-2"><img src="../media/PYTHON-DUVERNOIS_006.jpg" alt="PYTHON-DUVERNOIS_006.jpg" style="transform: none !important;"></a></div><div class="v3-slot v3-slot-43" id="v3-python-3"><a class="v3-open" href="#v3-python-3"><img src="../media/PYTHON-DUVERNOIS_008.jpg" alt="PYTHON-DUVERNOIS_008.jpg" style="transform: none !important;"></a></div></div><div class="v3-hero" id="v3-python-4"><a class="v3-open" href="#v3-python-4"><img src="../media/OTA_NZI_PYTHON_EXT3_HD.jpg" alt="OTA_NZI_PYTHON_EXT3_HD.jpg" style="transform: none !important;"></a></div></div></article>
+<article class="project"><header class="project-header">
+<div class="project-title">
+<div class="project-num-line">
+<span class="project-num">02</span>
+<span class="project-num-label">Équipement mixte · chantier</span>
+</div>
+<h3 id="proj-coeur">Cœur des Sources</h3>
+<div class="program-line">Auditorium · conservatory · dojo · gymnasium · Agora · landscaped park — Saint-Germain-en-Laye</div>
+<div class="v3-perfo-block"><div class="v3-perfo-key">HQE</div><div class="v3-perfo-value">Cerqual HQE Tertiaire · BDF Argent</div><div class="v3-perfo-key">Label</div><div class="v3-perfo-value">E3C1</div><div class="v3-perfo-key">Structure</div><div class="v3-perfo-value">Mixte bois + béton bas carbone</div></div>
+</div>
+<div class="cart-v3"><div class="v3-bandeau"><div class="v3-cell moa"><span class="micro">Client</span><span class="big">Ville de Saint-Germain-en-Laye</span><span class="sub">Lauréat concours</span></div><div class="v3-cell budget"><span class="micro">Budget</span><span class="big">34 M€</span><span class="sub">3 400 €/m²</span></div><div class="v3-cell surface"><span class="micro">Floor area</span><span class="big">10 000 m²</span><span class="sub">SDP</span></div><div class="v3-cell phase"><span class="micro">Phase</span><span class="big">Chantier en cours</span><span class="sub">livraison 1T 2027 · Bois/béton · parement pierre · charpentes bois</span></div></div></div></header><div class="project-description">
+</div><div class="v3-project-grid"><div class="v3-hero" id="v3-coeur-0"><a class="v3-open" href="#v3-coeur-0"><img src="../media/COEUR-DES-SOURCES_012.jpg" alt="COEUR-DES-SOURCES_012.jpg" style="transform: none !important;"></a></div><div class="v3-row v3-row-3"><div class="v3-slot v3-slot-43" id="v3-coeur-1"><a class="v3-open" href="#v3-coeur-1"><img src="../media/COEUR-DES-SOURCES_001.jpg" alt="COEUR-DES-SOURCES_001.jpg" style="transform: none !important;"></a></div><div class="v3-slot v3-slot-43" id="v3-coeur-2"><a class="v3-open" href="#v3-coeur-2"><img src="../media/COEUR-DES-SOURCES_002.jpg" alt="COEUR-DES-SOURCES_002.png" style="transform: none !important;"></a></div><div class="v3-slot v3-slot-43" id="v3-coeur-3"><a class="v3-open" href="#v3-coeur-3"><img src="../media/Salle 2 ok.jpg" alt="Salle 2 ok.png" style="transform: none !important;"></a></div></div><div class="v3-row v3-row-3"><div class="v3-slot v3-slot-43" id="v3-coeur-4"><a class="v3-open" href="#v3-coeur-4"><img src="../media/COEUR-DES-SOURCES_009.jpg" alt="COEUR-DES-SOURCES_009.jpg" style="transform: none !important;"></a></div><div class="v3-slot v3-slot-43" id="v3-coeur-5"><a class="v3-open" href="#v3-coeur-5"><img src="../media/GML-StGerLayCoeurSources-250722-01.jpg" alt="GML-StGerLayCoeurSources-250722-01.jpg" style="transform: none !important;"></a></div><div class="v3-slot v3-slot-43" id="v3-coeur-6"><a class="v3-open" href="#v3-coeur-6"><img src="../media/20251127_134452.jpg" alt="20251127_134452.jpg" style="transform: none !important;"></a></div></div><div class="v3-row v3-row-2"><div class="v3-slot v3-slot-43" id="v3-coeur-7"><a class="v3-open" href="#v3-coeur-7"><img src="../media/COEUR-DES-SOURCES_003.jpg" alt="COEUR-DES-SOURCES_003.png" style="transform: none !important; object-position: 50.4% 100%;" class=""></a></div><div class="v3-slot v3-slot-43" id="v3-coeur-8"><a class="v3-open" href="#v3-coeur-8"><img src="../media/Audi 2.jpg" alt="Audi 2.png" class="" style="transform: none !important; object-position: 46.1% 58.5%;"></a></div></div></div></article>
+<article class="project"><header class="project-header">
+<div class="project-title">
+<div class="project-num-line">
+<span class="project-num">04</span>
+<span class="project-num-label">Équipement sport · livré 1T 2026</span>
+</div>
+<h3 id="proj-althea">Gymnase Althéa Laurin</h3>
+<div class="program-line">Dance studio · multi-sport · flexible hall · dojo · rooftop sports court — Épinay-sur-Seine</div>
+<div class="v3-perfo-block"><div class="v3-perfo-key">HQE</div><div class="v3-perfo-value">NF Habitat HQE</div><div class="v3-perfo-key">Label</div><div class="v3-perfo-value">E2C1 · Label Biosourcé NIV 2</div><div class="v3-perfo-key">Structure</div><div class="v3-perfo-value">Construction mixte bois/béton · laine chanvre</div></div>
+</div>
+<div class="cart-v3"><div class="v3-bandeau"><div class="v3-cell moa"><span class="micro">Client</span><span class="big">Ville d'Épinay-sur-Seine</span><span class="sub">Lauréat concours</span></div><div class="v3-cell budget"><span class="micro">Budget</span><span class="big">9 M€</span><span class="sub">3 000 €/m²</span></div><div class="v3-cell surface"><span class="micro">Floor area</span><span class="big">3 000 m²</span><span class="sub">SDP</span></div><div class="v3-cell phase"><span class="micro">Phase</span><span class="big">Livré 1T 2026</span><span class="sub">MOB bois/béton · poutres CLT sous-tendues · laine de chanvre</span></div></div></div></header><div class="project-description">
+</div><div class="v3-project-grid"><div class="v3-hero" id="v3-althea-0"><a class="v3-open" href="#v3-althea-0"><img src="../media/260122_NZI_Epinay_Salem_web (2).jpg" alt="260122_NZI_Epinay_Salem_web (2).jpg" style="transform: none !important;"></a></div><div class="v3-row v3-row-3"><div class="v3-slot v3-slot-43" id="v3-althea-1"><a class="v3-open" href="#v3-althea-1"><img src="../media/Aerienne Epinay avec persos.jpg" alt="Aerienne Epinay avec persos.png" style="transform: none !important;"></a></div><div class="v3-slot v3-slot-43" id="v3-althea-2"><a class="v3-open" href="#v3-althea-2"><img src="../media/260122_NZI_Epinay_Salem_web (33).jpg" alt="260122_NZI_Epinay_Salem_web (33).jpg" style="transform: none !important;"></a></div><div class="v3-slot v3-slot-43" id="v3-althea-3"><a class="v3-open" href="#v3-althea-3"><img src="../media/260122_NZI_Epinay_Salem_web (7).jpg" alt="260122_NZI_Epinay_Salem_web (7).jpg" style="transform: none !important;"></a></div></div><div class="v3-row v3-row-3"><div class="v3-slot v3-slot-43" id="v3-althea-4"><a class="v3-open" href="#v3-althea-4"><img src="../media/260122_NZI_Epinay_Salem_web (1).jpg" alt="260122_NZI_Epinay_Salem_web (1).jpg" style="transform: none !important;"></a></div><div class="v3-slot v3-slot-43" id="v3-althea-5"><a class="v3-open" href="#v3-althea-5"><img src="../media/260122_NZI_Epinay_Salem_web (31).jpg" alt="260122_NZI_Epinay_Salem_web (31).jpg" style="transform: none !important;"></a></div><div class="v3-slot v3-slot-43" id="v3-althea-6"><a class="v3-open" href="#v3-althea-6"><img src="../media/260122_NZI_Epinay_Salem_web (30).jpg" alt="260122_NZI_Epinay_Salem_web (30).jpg" style="transform: none !important;"></a></div></div><div class="v3-row v3-row-3"><div class="v3-slot v3-slot-43" id="v3-althea-7"><a class="v3-open" href="#v3-althea-7"><img src="../media/260122_NZI_Epinay_Salem_web (34).jpg" alt="260122_NZI_Epinay_Salem_web (34).jpg" style="transform: none !important;"></a></div><div class="v3-slot v3-slot-43" id="v3-althea-8"><a class="v3-open" href="#v3-althea-8"><img src="../media/260122_NZI_Epinay_Salem_web (3).jpg" alt="260122_NZI_Epinay_Salem_web (3).jpg" style="transform: none !important;"></a></div><div class="v3-slot v3-slot-43" id="v3-althea-9"><a class="v3-open" href="#v3-althea-9"><img src="../media/260122_NZI_Epinay_Salem_web (5).jpg" alt="260122_NZI_Epinay_Salem_web (5).jpg" style="transform: none !important;"></a></div></div><div class="v3-row v3-row-3"><div class="v3-slot v3-slot-43" id="v3-althea-10"><a class="v3-open" href="#v3-althea-10"><img src="../media/260122_NZI_Epinay_Salem_web (11).jpg" alt="260122_NZI_Epinay_Salem_web (11).jpg" style="transform: none !important;"></a></div><div class="v3-slot v3-slot-43" id="v3-althea-11"><a class="v3-open" href="#v3-althea-11"><img src="../media/260122_NZI_Epinay_Salem_web (12).jpg" alt="260122_NZI_Epinay_Salem_web (12).jpg" style="transform: none !important;"></a></div><div class="v3-slot v3-slot-43" id="v3-althea-12"><a class="v3-open" href="#v3-althea-12"><img src="../media/260122_NZI_Epinay_Salem_web (13).jpg" alt="260122_NZI_Epinay_Salem_web (13).jpg" style="transform: none !important;"></a></div></div><div class="v3-row v3-row-3"><div class="v3-slot v3-slot-43" id="v3-althea-13"><a class="v3-open" href="#v3-althea-13"><img src="../media/260122_NZI_Epinay_Salem_web (17).jpg" alt="260122_NZI_Epinay_Salem_web (17).jpg" style="transform: none !important;"></a></div><div class="v3-slot v3-slot-43" id="v3-althea-14"><a class="v3-open" href="#v3-althea-14"><img src="../media/260122_NZI_Epinay_Salem_web (20).jpg" alt="260122_NZI_Epinay_Salem_web (20).jpg" style="transform: none !important;"></a></div><div class="v3-slot v3-slot-43" id="v3-althea-15"><a class="v3-open" href="#v3-althea-15"><img src="../media/260122_NZI_Epinay_Salem_web (25).jpg" alt="260122_NZI_Epinay_Salem_web (25).jpg" style="transform: none !important;"></a></div></div><div class="v3-row v3-row-3"><div class="v3-slot v3-slot-43" id="v3-althea-16"><a class="v3-open" href="#v3-althea-16"><img src="../media/260122_NZI_Epinay_Salem_web (32).jpg" alt="260122_NZI_Epinay_Salem_web (32).jpg" style="transform: none !important;"></a></div><div class="v3-slot v3-slot-43" id="v3-althea-17"><a class="v3-open" href="#v3-althea-17"><img src="../media/260122_NZI_Epinay_Salem_web (9).jpg" alt="260122_NZI_Epinay_Salem_web (9).jpg" style="transform: none !important;"></a></div><div class="v3-slot v3-slot-43" id="v3-althea-18"><a class="v3-open" href="#v3-althea-18"><img src="../media/260122_NZI_Epinay_Salem_web (29).jpg" alt="260122_NZI_Epinay_Salem_web (29).jpg" style="transform: none !important;"></a></div></div><div class="v3-row v3-row-3"><div class="v3-slot v3-slot-43" id="v3-althea-19"><a class="v3-open" href="#v3-althea-19"><img src="../media/260122_NZI_Epinay_Salem_web (4).jpg" alt="260122_NZI_Epinay_Salem_web (4).jpg" style="transform: none !important;"></a></div><div class="v3-slot v3-slot-43" id="v3-althea-20"><a class="v3-open" href="#v3-althea-20"><img src="../media/260122_NZI_Epinay_Salem_web (26).jpg" alt="260122_NZI_Epinay_Salem_web (26).jpg" style="transform: none !important;"></a></div><div class="v3-slot v3-slot-43" id="v3-althea-21"><a class="v3-open" href="#v3-althea-21"><img src="../media/260122_NZI_Epinay_Salem_web (15).jpg" alt="260122_NZI_Epinay_Salem_web (15).jpg" style="transform: none !important;"></a></div></div><div class="v3-row v3-row-3"><div class="v3-slot v3-slot-43" id="v3-althea-22"><a class="v3-open" href="#v3-althea-22"><img src="../media/260122_NZI_Epinay_Salem_web (8).jpg" alt="260122_NZI_Epinay_Salem_web (8).jpg" style="transform: none !important;"></a></div><div class="v3-slot v3-slot-43" id="v3-althea-23"><a class="v3-open" href="#v3-althea-23"><img src="../media/260122_NZI_Epinay_Salem_web (36).jpg" alt="260122_NZI_Epinay_Salem_web (36).jpg" style="transform: none !important;"></a></div><div class="v3-slot v3-slot-43" id="v3-althea-24"><a class="v3-open" href="#v3-althea-24"><img src="../media/260122_NZI_Epinay_Salem_web (6).jpg" alt="260122_NZI_Epinay_Salem_web (6).jpg" style="transform: none !important;"></a></div></div></div></article>
+<article class="project"><header class="project-header">
+<div class="project-title">
+<div class="project-num-line">
+<span class="project-num">11</span>
+<span class="project-num-label">Petite enfance · livré 2022</span>
+</div>
+<h3 id="proj-vaureal">Vauréal</h3>
+<div class="program-line">Collective childcare centre · family crèche · timber and stone</div>
+<div class="v3-perfo-block"><div class="v3-perfo-key">HQE</div><div class="v3-perfo-value">Label HQE</div><div class="v3-perfo-key">Label</div><div class="v3-perfo-value">E2C1 · Label Biosourcé NIV 1</div><div class="v3-perfo-key">Structure</div><div class="v3-perfo-value">Construction Bois · parement pierre</div></div>
+</div>
+<div class="cart-v3"><div class="v3-bandeau"><div class="v3-cell moa"><span class="micro">Client</span><span class="big">CA Cergy-Pontoise</span><span class="sub">Lauréat concours</span></div><div class="v3-cell budget"><span class="micro">Budget</span><span class="big">3,4 M€</span><span class="sub">2 000 €/m²</span></div><div class="v3-cell surface"><span class="micro">Floor area</span><span class="big">1 700 m²</span><span class="sub">SDP</span></div><div class="v3-cell phase"><span class="micro">Phase</span><span class="big">Livré 2022</span><span class="sub">Structure bois · parement pierre</span></div></div></div></header><div class="project-description">
+</div><div class="v3-project-grid"><div class="v3-hero" id="v3-vaureal-0"><a class="v3-open" href="#v3-vaureal-0"><img src="../media/cSimonGuesdon_DSC_6398.jpg" alt="cSimonGuesdon_DSC_6398.jpg" style="transform: none !important;"></a></div><div class="v3-row v3-row-3"><div class="v3-slot v3-slot-43" id="v3-vaureal-1"><a class="v3-open" href="#v3-vaureal-1"><img src="../media/VAUREAL_003.jpg" alt="VAUREAL_003.jpg" style="transform: none !important;"></a></div><div class="v3-slot v3-slot-43" id="v3-vaureal-2"><a class="v3-open" href="#v3-vaureal-2"><img src="../media/cSimonGuesdon_DSC_6466.jpg" alt="cSimonGuesdon_DSC_6466.jpg" style="transform: none !important;"></a></div><div class="v3-slot v3-slot-43" id="v3-vaureal-3"><a class="v3-open" href="#v3-vaureal-3"><img src="../media/cSimonGuesdon_DSC_6402.jpg" alt="cSimonGuesdon_DSC_6402.jpg" style="transform: none !important;"></a></div></div><div class="v3-row v3-row-3"><div class="v3-slot v3-slot-43" id="v3-vaureal-4"><a class="v3-open" href="#v3-vaureal-4"><img src="../media/2.jpg" alt="2.png" style="transform: none !important;"></a></div><div class="v3-slot v3-slot-43" id="v3-vaureal-5"><a class="v3-open" href="#v3-vaureal-5"><img src="../media/3.jpg" alt="3.png" style="transform: none !important;"></a></div><div class="v3-slot v3-slot-43" id="v3-vaureal-6"><a class="v3-open" href="#v3-vaureal-6"><img src="../media/cSimonGuesdon_DSC_6714.jpg" alt="cSimonGuesdon_DSC_6714.jpg" style="transform: none !important;"></a></div></div><div class="v3-row v3-row-3"><div class="v3-slot v3-slot-43" id="v3-vaureal-7"><a class="v3-open" href="#v3-vaureal-7"><img src="../media/cSimonGuesdon_DSC_6815.jpg" alt="cSimonGuesdon_DSC_6815.jpg" style="transform: none !important;"></a></div><div class="v3-slot v3-slot-43" id="v3-vaureal-8"><a class="v3-open" href="#v3-vaureal-8"><img src="../media/5.jpg" alt="5.png" style="transform: none !important;"></a></div><div class="v3-slot v3-slot-43" id="v3-vaureal-9"><a class="v3-open" href="#v3-vaureal-9"><img src="../media/1.jpg" alt="1.png" style="transform: none !important;"></a></div></div><div class="v3-row v3-row-3"><div class="v3-slot v3-slot-43" id="le-add-1779019736094-xy0r"><a class="v3-open" href="#le-add-1779019736094-xy0r"><img src="../media/upload-c2e5b799.jpg" alt="IMG_5003.JPG" style="transform: none !important;"></a></div><div class="v3-slot v3-slot-43" id="le-add-1779019736126-j7gl"><a class="v3-open" href="#le-add-1779019736126-j7gl"><img src="../media/upload-3aad27e4.jpg" alt="IMG20220209121825.jpg" style="transform: none !important;"></a></div><div class="v3-slot v3-slot-43" id="le-add-1779020133590-8e2f"><a class="v3-open" href="#le-add-1779020133590-8e2f"><img src="../media/upload-8e517307.jpg" alt="IMG_5857.jpg" class="" style="object-position: 54.8% 10.2%; transform: none !important;"></a></div></div></div></article>
+<article class="project"><header class="project-header">
+<div class="project-title">
+<div class="project-num-line">
+<span class="project-num">06</span>
+<span class="project-num-label">Équipement culturel · chantier</span>
+</div>
+<h3 id="proj-numerique">Musée du Numérique</h3>
+<div class="program-line">Cultural hub · 3 cinemas · offices · Micro-folies · Digital Museum — Savigny</div>
+<div class="v3-perfo-block"><div class="v3-perfo-key">HQE</div><div class="v3-perfo-value">Cerqual HQE Tertiaire</div><div class="v3-perfo-key">Label</div><div class="v3-perfo-value">E3C1 · béton de site</div><div class="v3-perfo-key">Structure</div><div class="v3-perfo-value">Transformation cinéma Excelsior</div></div>
+</div>
+<div class="cart-v3"><div class="v3-bandeau"><div class="v3-cell moa"><span class="micro">Client</span><span class="big">Ville de Savigny-sur-Orge</span><span class="sub">Lauréat concours</span></div><div class="v3-cell budget"><span class="micro">Budget</span><span class="big">9,35 M€</span><span class="sub">4 675 €/m²</span></div><div class="v3-cell surface"><span class="micro">Floor area</span><span class="big">2 000 m²</span><span class="sub">SDP</span></div><div class="v3-cell phase"><span class="micro">Phase</span><span class="big">Chantier en cours</span><span class="sub">livraison 2T 2027 · Béton de site · enveloppe acoustique</span></div></div></div></header><div class="project-description">
+</div><div class="v3-project-grid"><div class="v3-hero" id="v3-numerique-0"><a class="v3-open" href="#v3-numerique-0"><img src="../media/OTA_nzi_savigny_ext_BD.jpg" alt="OTA_nzi_savigny_ext_BD.jpg" style="transform: none !important;"></a></div><div class="v3-hero" id="v3-numerique-1"><a class="v3-open" href="#v3-numerique-1"><img src="../media/OTA_nzi_savigny_int_BD.jpg" alt="OTA_nzi_savigny_int_BD.jpg" style="transform: none !important;"></a></div></div></article>
+<article class="project"><header class="project-header">
+<div class="project-title">
+<div class="project-num-line">
+<span class="project-num">07</span>
+<span class="project-num-label">Équipement culturel · études</span>
+</div>
+<h3 id="proj-nuages">Médiathèque et tiers lieu sous les Tours Nuages</h3>
+<div class="program-line">Mediatheque · cultural third place — at the foot of Émile Aillaud's Tours Nuages — Nanterre</div>
+<div class="project-filiere"><span class="pf-label">Construction type</span><span class="pf-value">Bois + chanvre</span></div>
+<div class="v3-perfo-block"><div class="v3-perfo-key">HQE</div><div class="v3-perfo-value">Cerqual HQE Tertiaire</div><div class="v3-perfo-key">Label</div><div class="v3-perfo-value">E4C2</div><div class="v3-perfo-key">Structure</div><div class="v3-perfo-value">Construction bois + béton de chanvre</div></div>
+</div>
+<div class="cart-v3"><div class="v3-bandeau"><div class="v3-cell moa"><span class="micro">Client</span><span class="big">Ville de Nanterre</span><span class="sub">Lauréat concours</span></div><div class="v3-cell budget"><span class="micro">Budget</span><span class="big">4,4 M€</span><span class="sub">3 140 €/m²</span></div><div class="v3-cell surface"><span class="micro">Floor area</span><span class="big">1 400 m²</span><span class="sub">SDP</span></div><div class="v3-cell phase"><span class="micro">Phase</span><span class="big">Projet en cours</span><span class="sub">livraison 1T 2028 · Construction bois · isolation chanvre</span></div></div></div></header><div class="project-description">
+</div><div class="v3-project-grid"><div class="v3-hero" id="v3-nuages-0"><a class="v3-open" href="#v3-nuages-0"><img src="../media/NANTERRE-MEDIATHEQUE_001.jpg" alt="NANTERRE-MEDIATHEQUE_001.png" style="transform: none !important;"></a></div><div class="v3-hero" id="v3-nuages-1"><a class="v3-open" href="#v3-nuages-1"><img src="../media/NANTERRE-MEDIATHEQUE_002.jpg" alt="NANTERRE-MEDIATHEQUE_002.jpg" style="transform: none !important;"></a></div></div></article>
+
+<section class="chapter-opener" id="ch-reversibilite" data-num="II">
+  <div class="kicker"><span class="kicker-chip">II — Reversibility</span><span class="kicker-sub">building for change</span></div>
+  <h2>Reversibility.</h2>
+  <div class="chapter-intro">
+    <p class="thesis">Today's brief is not tomorrow's. We design for that.</p>
+    <p class="examples">The Athletes' Village BLOCK PB10 is delivered in 2024 for 206 athlete beds. In 2025, without demolishing a single load-bearing wall, it becomes 37 owner-occupied homes — the structure was drawn for this. The CCBN in Nangis is designed so that a community council headquarters can become a school, then housing, without heavy demolition.</p>
+    <p class="conclusion">Environmental quality here is not a label: it is the building's capacity to change use without changing material. CLT timber, regular structural grids, demountable fit-out. Reversibility is a technical decision made at sketch stage, not an option added at the end.</p>
+  </div>
+</section>
+
+<article class="project">
+<header class="project-header">
+<div class="project-title">
+<div class="project-num-line">
+<span class="project-num">15</span>
+<span class="project-num-label">Village des Athlètes · livré 2024</span>
+</div>
+<h3 id="proj-village">Village des Athlètes — ÎLOT PB10</h3>
+<div class="program-line">Olympic phase: 206 athlete beds · Legacy phase: 37 owner-occupied homes — Saint-Denis</div>
+<div class="v3-perfo-block"><div class="v3-perfo-key">HQE</div><div class="v3-perfo-value">NF Habitat HQE Excellent</div><div class="v3-perfo-key">Label</div><div class="v3-perfo-value">RE2020 seuil 2025 · Label Biosourcé NIV 2</div><div class="v3-perfo-key">Structure</div><div class="v3-perfo-value">Construction bois</div></div>
+</div>
+<div class="cart-v3"><div class="v3-bandeau"><div class="v3-cell moa"><span class="micro">Client</span><span class="big">Pichet-Legendre</span><span class="sub">Lauréat concours</span></div><div class="v3-cell budget"><span class="micro">Budget</span><span class="big">5,5 M€</span><span class="sub">2 200 €/m²</span></div><div class="v3-cell surface"><span class="micro">Floor area</span><span class="big">2 500 m²</span><span class="sub">SDP</span></div><div class="v3-cell phase"><span class="micro">Phase</span><span class="big">Livré 2024</span><span class="sub">Bois · NF HQE · Couloir biodiversité</span></div></div></div></header>
+<div class="project-description">
+</div>
+<div class="v3-project-grid"><div class="v3-hero" id="v3-village-0"><a class="v3-open" href="#v3-village-0"><img src="../media/JO2024-PB10_002.jpg" alt="JO2024-PB10_002.jpg" style="transform: scale(1.09) translateY(-29.6005px);"></a></div><div class="v3-row v3-row-3"><div class="v3-slot v3-slot-43" id="v3-village-1"><a class="v3-open" href="#v3-village-1"><img src="../media/JO2024-PB10_005.jpg" alt="JO2024-PB10_005.png" style="transform: scale(1.09) translateY(-22.4805px);"></a></div><div class="v3-slot v3-slot-43" id="v3-village-2"><a class="v3-open" href="#v3-village-2"><img src="../media/JO2024-PB10_001.jpg" alt="JO2024-PB10_001.jpg" style="transform: scale(1.09) translateY(-22.4805px);"></a></div><div class="v3-slot v3-slot-43" id="v3-village-3"><a class="v3-open" href="#v3-village-3"><img src="../media/IMG_6196 2.JPG" alt="IMG_6196 2.JPG" style="transform: scale(1.09) translateY(-22.4805px);"></a></div></div><div class="v3-row v3-row-2"><div class="v3-slot v3-slot-43" id="v3-village-4"><a class="v3-open" href="#v3-village-4"><img src="../media/Screenshot_20250907_180424_LinkedIn.jpg" alt="Screenshot_20250907_180424_LinkedIn.jpg" style="transform: scale(1.09) translateY(-25.7716px);"></a></div><div class="v3-slot v3-slot-43" id="v3-village-5"><a class="v3-open" href="#v3-village-5"><img src="../media/Screenshot_20250417_154204_Instagram.jpg" alt="Screenshot_20250417_154204_Instagram.jpg" style="transform: scale(1.09) translateY(-25.7716px);"></a></div></div></div></article>
+<article class="project"><header class="project-header">
+<div class="project-title">
+<div class="project-num-line">
+<span class="project-num">08</span>
+<span class="project-num-label">Siège tertiaire · chantier</span>
+</div>
+<h3 id="proj-ccbn">CCBN Brie Nangissienne</h3>
+<div class="program-line">Community council headquarters · bio-sourced flex office · planted patio — Nangis</div>
+<div class="v3-perfo-block"><div class="v3-perfo-key">HQE</div><div class="v3-perfo-value">Construction Bois</div><div class="v3-perfo-key">Label</div><div class="v3-perfo-value">RE2020 Seuil 2028 · Label Biosourcé NIV 3</div><div class="v3-perfo-key">Structure</div><div class="v3-perfo-value">Bois · isolation chanvre · MOB préfabriqué</div></div>
+</div>
+<div class="cart-v3"><div class="v3-bandeau"><div class="v3-cell moa"><span class="micro">Client</span><span class="big">Communauté de communes Brie Nangissienne</span><span class="sub">Lauréat concours</span></div><div class="v3-cell budget"><span class="micro">Budget</span><span class="big">4,87 M€</span><span class="sub">2 450 €/m²</span></div><div class="v3-cell surface"><span class="micro">Floor area</span><span class="big">1 991 m²</span><span class="sub">SDP</span></div><div class="v3-cell phase"><span class="micro">Phase</span><span class="big">Projet en cours</span><span class="sub">livraison 2T 2028 · Structure bois · isolation chanvre · MOB préfabriqué</span></div></div></div></header><div class="project-description">
+</div><div class="v3-project-grid"><div class="v3-hero" id="v3-ccbn-0"><a class="v3-open" href="#v3-ccbn-0"><img src="../media/OTA_nzi_nanges_1006_1.jpg" alt="OTA_nzi_nanges_1006_1.jpg" style="transform: scale(1.09) translateY(-30.5078px);"></a></div><div class="v3-row v3-row-3"><div class="v3-slot v3-slot-43" id="v3-ccbn-1"><a class="v3-open" href="#v3-ccbn-1"><img src="../media/OTA_nzi_nangis_vue2 (2).jpg" alt="OTA_nzi_nangis_vue2 (2).jpg" style="transform: scale(1.09) translateY(-22.88px);"></a></div><div class="v3-slot v3-slot-43" id="v3-ccbn-2"><a class="v3-open" href="#v3-ccbn-2"><img src="../media/OTA_nangis__view terrace HD.jpg" alt="OTA_nangis__view terrace HD.jpg" style="transform: scale(1.09) translateY(-22.88px);"></a></div><div class="v3-slot v3-slot-43" id="v3-ccbn-3"><a class="v3-open" href="#v3-ccbn-3"><img src="../media/OTA_nangis_view stairs HD.jpg" alt="OTA_nangis_view stairs HD.jpg" style="transform: scale(1.09) translateY(-22.88px);"></a></div></div></div></article>
+
+<section class="chapter-opener" id="ch-transformations" data-num="III">
+  <div class="kicker"><span class="kicker-chip">III — Transformations</span><span class="kicker-sub">subtract, add</span></div>
+  <h2>Transformations.</h2>
+  <div class="chapter-intro">
+    <p class="thesis">Rehabilitation means respecting a building as it is. Transformation means making it something else.</p>
+    <p class="examples">Rue Nollet: a 1930s multi-storey car park becomes 83 social housing units. Bertelotte: a 1970s office building becomes 145 student rooms in timber and straw. CMI Issy: a chalk factory becomes a museum of religions and community hub. Saint-Dizier: a Decathlon store becomes a flexible multi-sports hall. Coquibus: a school is partly demolished, partly raised — without interrupting a single class. Langevin: a school is restructured around a rammed-earth courtyard oasis.</p>
+    <p class="conclusion">Six projects, six subtraction/addition equations. The gesture is not conservatory — it is programmatic. We remove square metres to find light, we add them in timber or straw to change the use. The bio-sourced construction sector is not an inflated ecological argument: it is the technical condition that makes rapid, lightweight, demountable transformation possible.</p>
+  </div>
+</section>
+
+<article class="project">
+<header class="project-header">
+<div class="project-title">
+<div class="project-num-line">
+<span class="project-num">09</span>
+<span class="project-num-label">Logement social · livré 2025</span>
+</div>
+<h3 id="proj-nollet">Rue Nollet</h3>
+<div class="cover-callback">Cover photo</div>
+<div class="program-line">Multi-storey car park → 83 social housing units · Paris 17<sup>e</sup></div>
+<div class="v3-perfo-block"><div class="v3-perfo-key">HQE</div><div class="v3-perfo-value">NF Habitat HQE · Effinergie rénovation</div><div class="v3-perfo-key">Label</div><div class="v3-perfo-value">E3C1 · Label Biosourcé NIV 1</div><div class="v3-perfo-key">Structure</div><div class="v3-perfo-value">CLT + MOB sur structure parking conservée</div></div>
+<div class="v3-distinctions-block"><div class="v3-distinctions-key">Awards &amp; distinctions</div><div class="v3-distinctions-list"><div class="v3-dist-item"><span class="v3-dist-status">Réception critique</span>vague Q1 2026 — Batiactu, Batirama, Construction21, Archicree, Chroniques d'Architecture, Architectura.be (BE), BauNetz.de, polis Magazin, Bauwende-News (DE), Metalocus (ES), Les Echos</div><div class="v3-dist-item"><span class="v3-dist-status">Exhibition</span>Pavillon de l'Arsenal — « Conserver Adapter Transmettre » 2026</div></div></div>
+</div>
+<div class="cart-v3"><div class="v3-preamble"><div class="v3-bloc-recit"><div class="v3-recit-rule"></div><div class="v3-bloc-title">Récit dédié</div><p>We are taught to add. We do the opposite: we remove square metres to find quality.</p><a href="#recit">Lire le récit complet ↓</a></div></div><div class="v3-bandeau"><div class="v3-cell moa"><span class="micro">Client</span><span class="big">Hénéo / RIVP</span><span class="sub">Lauréat concours</span></div><div class="v3-cell budget"><span class="micro">Budget</span><span class="big">9 M€</span><span class="sub">2 143 €/m²</span></div><div class="v3-cell surface"><span class="micro">Floor area</span><span class="big">4 200 m²</span><span class="sub">SDP</span></div><div class="v3-cell phase"><span class="micro">Phase</span><span class="big">Livré 2025</span><span class="sub">Structure CLT · isolation PAVATEX · menuiseries bois</span></div></div></div></header>
+<div class="project-description">
+<p>The plot, completely landlocked, would have constrained any new construction. We chose to retain and restructure, demolishing a complete structural bay along the North-South axis to open up sunlight into the heart of the block and create deep visual sightlines.</p><p>Structure bois, dédensification (4 500 m2 de parking ramenés à 2 500 m2 habitables), programme logement social, Hénéo / RIVP.</p>
+</div>
+<div class="project-prize"><span class="label">Réception critique — vague Q1 2026</span><div class="value">Batiactu (26/01/2026, Steve Carpentier) · Batirama (28/01/2026, Pascal Poggi) · Construction21 · Archicree · Chroniques d'Architecture · Architectura.be (Belgique) · BauNetz.de · polis Magazin · Bauwende-News (Allemagne) · Metalocus (Espagne) · Les Echos · Pavillon de l'Arsenal — exposition « Conserver Adapter Transmettre »</div></div>
+<div class="v3-project-grid"><div class="v3-hero" id="v3-nollet-0"><a class="v3-open" href="#v3-nollet-14"><img src="../media/10_NZI_NOLLET_LDD_Frederic_Delangle_WEB.jpg" alt="10_NZI_NOLLET_LDD_Frederic_Delangle_WEB.jpg" style="transform: scale(1.09) translateY(-30.821px);"></a></div><div class="v3-row v3-row-4"><div class="v3-slot v3-slot-43" id="v3-nollet-schema"><a class="v3-open" href="#v3-nollet-schema"><img src="../media/nollet-schema-transformation.gif" alt="Schema transformation Nollet" class="schema-gif" style="transform: scale(1.09) translateY(-21.4132px);"></a></div><div class="v3-slot v3-slot-43" id="v3-nollet-1"><a class="v3-open" href="#v3-nollet-1"><img src="../media/1J1A4620.jpg" alt="1J1A4620.jpg" style="transform: scale(1.09) translateY(-21.4132px);"></a></div><div class="v3-slot v3-slot-43" id="v3-nollet-2"><a class="v3-open" href="#v3-nollet-2"><img src="../media/1J1A4595.jpg" alt="1J1A4595.jpg" style="transform: scale(1.09) translateY(-21.4132px);"></a></div><div class="v3-slot v3-slot-43" id="v3-nollet-3"><a class="v3-open" href="#v3-nollet-3"><img src="../media/15-photo chantier Nollet pelleteuse.jpg" alt="15-photo chantier Nollet pelleteuse.jpg" style="transform: scale(1.09) translateY(-21.4132px);"></a></div></div><div class="v3-row v3-row-3"><div class="v3-slot v3-slot-43" id="v3-nollet-4"><a class="v3-open" href="#v3-nollet-4"><img src="../media/NOLLET_009.jpg" alt="NOLLET_009.jpg" style="transform: scale(1.09) translateY(-22.8415px);"></a></div><div class="v3-slot v3-slot-43" id="v3-nollet-5"><a class="v3-open" href="#v3-nollet-8"><img src="../media/20_NZI_NOLLET_Existant_WEB.jpg" alt="20_NZI_NOLLET_Existant_WEB.jpg" style="transform: scale(1.09) translateY(-22.8415px);"></a></div><div class="v3-slot v3-slot-43" id="v3-nollet-6"><a class="v3-open" href="#v3-nollet-6"><img src="../media/17_NZI_NOLLET_Chantier_WEB.jpg" alt="17_NZI_NOLLET_Chantier_WEB.jpg" style="transform: scale(1.09) translateY(-22.8415px);"></a></div></div><div class="v3-row v3-row-3"><div class="v3-slot v3-slot-43" id="v3-nollet-7"><a class="v3-open" href="#v3-nollet-7"><img src="../media/IMG_5196.JPG" alt="IMG_5196.JPG" style="transform: scale(1.09) translateY(-17.0649px);"></a></div><div class="v3-slot v3-slot-43" id="v3-nollet-8"><a class="v3-open" href="#v3-nollet-5"><img src="../media/IMG_0240.JPG" alt="IMG_0240.JPG" style="transform: scale(1.09) translateY(-17.0649px);"></a></div><div class="v3-slot v3-slot-43" id="v3-nollet-9"><a class="v3-open" href="#v3-nollet-9"><img src="../media/21_NZI_NOLLET_GENERE_WEB.jpg" alt="21_NZI_NOLLET_GENERE_WEB.jpg" style="transform: scale(1.09) translateY(-17.0649px);"></a></div></div><div class="v3-row v3-row-3"><div class="v3-slot v3-slot-43" id="v3-nollet-10"><a class="v3-open" href="#v3-nollet-10"><img src="../media/3_NZI_NOLLET_LDD_Frederic_Delangle_WEB.jpg" alt="3_NZI_NOLLET_LDD_Frederic_Delangle_WEB.jpg" style="transform: scale(1.09) translateY(-4.51068px);"></a></div><div class="v3-slot v3-slot-43" id="v3-nollet-11"><a class="v3-open" href="#v3-nollet-0"><img src="../media/6_NZI_NOLLET_LDD_Frederic_Delangle_WEB.jpg" alt="Rue Nollet — façade sawtooth (© Frédéric Delangle)" style="transform: scale(1.09) translateY(-4.51068px); object-position: 60.3% 0%;" class=""></a></div><div class="v3-slot v3-slot-43" id="v3-nollet-12"><a class="v3-open" href="#v3-nollet-12"><img src="../media/2_NZI_NOLLET_LDD_Frederic_Delangle_WEB.jpg" alt="2_NZI_NOLLET_LDD_Frederic_Delangle_WEB.jpg" style="transform: scale(1.09) translateY(-4.51068px);"></a></div></div><div class="v3-row v3-row-3"><div class="v3-slot v3-slot-43" id="v3-nollet-13"><a class="v3-open" href="#v3-nollet-13"><img src="../media/9_NZI_NOLLET_LDD_Frederic_Delangle_WEB.jpg" alt="9_NZI_NOLLET_LDD_Frederic_Delangle_WEB.jpg" style="transform: scale(1.09) translateY(8.04354px);"></a></div><div class="v3-slot v3-slot-43" id="v3-nollet-14"><a class="v3-open" href="#v3-nollet-11"><img src="../media/1_NZI_NOLLET_LDD_Frederic_Delangle_WEB.jpg" alt="1_NZI_NOLLET_LDD_Frederic_Delangle_WEB.jpg" style="transform: scale(1.09) translateY(8.04354px);"></a></div><div class="v3-slot v3-slot-43" id="v3-nollet-15"><a class="v3-open" href="#v3-nollet-15"><img src="../media/14_NZI_NOLLET_LDD_Frederic_Delangle_WEB.jpg" alt="14_NZI_NOLLET_LDD_Frederic_Delangle_WEB.jpg" style="transform: scale(1.09) translateY(8.04354px);"></a></div></div><div class="v3-row v3-row-3"><div class="v3-slot v3-slot-43" id="v3-nollet-16"><a class="v3-open" href="#v3-nollet-16"><img src="../media/4_NZI_NOLLET_LDD_Frederic_Delangle_WEB.jpg" alt="4_NZI_NOLLET_LDD_Frederic_Delangle_WEB.jpg" style="transform: scale(1.09) translateY(20.5978px);"></a></div><div class="v3-slot v3-slot-43" id="v3-nollet-17"><a class="v3-open" href="#v3-nollet-17"><img src="../media/12_NZI_NOLLET_LDD_Frederic_Delangle_WEB.jpg" alt="12_NZI_NOLLET_LDD_Frederic_Delangle_WEB.jpg" style="transform: scale(1.09) translateY(20.5978px);"></a></div><div class="v3-slot v3-slot-43" id="v3-nollet-18"><a class="v3-open" href="#v3-nollet-18"><img src="../media/8_NZI_NOLLET_LDD_Frederic_Delangle_WEB.jpg" alt="8_NZI_NOLLET_LDD_Frederic_Delangle_WEB.jpg" style="transform: scale(1.09) translateY(20.5978px);"></a></div></div><div class="v3-row v3-row-3"><div class="v3-slot v3-slot-43" id="v3-nollet-19"><a class="v3-open" href="#v3-nollet-19"><img src="../media/11_NZI_NOLLET_LDD_Frederic_Delangle_WEB.jpg" alt="11_NZI_NOLLET_LDD_Frederic_Delangle_WEB.jpg" style="transform: scale(1.09) translateY(30.1245px);"></a></div><div class="v3-slot v3-slot-43" id="v3-nollet-20"><a class="v3-open" href="#v3-nollet-20"><img src="../media/5_NZI_NOLLET_LDD_Frederic_Delangle_WEB.jpg" alt="5_NZI_NOLLET_LDD_Frederic_Delangle_WEB.jpg" style="transform: scale(1.09) translateY(30.1245px);"></a></div><div class="v3-slot v3-slot-43" id="v3-nollet-21"><a class="v3-open" href="#v3-nollet-21"><img src="../media/7_NZI_NOLLET_LDD_Frederic_Delangle_WEB.jpg" alt="7_NZI_NOLLET_LDD_Frederic_Delangle_WEB.jpg" style="transform: scale(1.09) translateY(30.1245px);"></a></div></div><div class="v3-hero" id="v3-nollet-22"><a class="v3-open" href="#v3-nollet-22"><img src="../media/NOLLET1-35.jpg" alt="NOLLET1-35.jpg" style="transform: none !important;"></a></div></div>
+<div class="conference-series" aria-label="Photos — Nollet"><div class="cs-grid"></div></div>
+</article>
+<article class="project">
+<header class="project-header">
+<div class="project-title">
+<div class="project-num-line">
+<span class="project-num">10</span>
+<span class="project-num-label">Résidence étudiante · livré 2021</span>
+</div>
+<h3 id="proj-bertelotte">Bertelotte — site Avia</h3>
+<div class="program-line">1970s offices → 145 student rooms · timber-straw · Paris 15<sup>e</sup></div>
+<div class="project-prizes">Lauréat Architizer A+ Awards 2022<span class="pp-sep">·</span>Mention UIA 2030<span class="pp-sep">·</span><span class="pp-more">6 distinctions — <a href="#reconnaissances">see</a></span></div>
+<div class="project-filiere"><span class="pf-label">Construction type</span><span class="pf-value">Bois + paille</span></div>
+<div class="v3-perfo-block"><div class="v3-perfo-key">HQE</div><div class="v3-perfo-value">Cerqual Patrimoine BBC rénovation · Plan Climat</div><div class="v3-perfo-key">Label</div><div class="v3-perfo-value">RT 2012 -20%</div><div class="v3-perfo-key">Structure</div><div class="v3-perfo-value">Construction bois et paille</div></div>
+<div class="v3-distinctions-block"><div class="v3-distinctions-key">Awards &amp; distinctions</div><div class="v3-distinctions-list"><div class="v3-dist-item"><span class="v3-dist-status">Honourable mention</span>UIA 2030 / ONU-Habitat 2022</div><div class="v3-dist-item"><span class="v3-dist-status">Winner</span>Architizer A+ Awards 2022 (Affordable Design)</div><div class="v3-dist-item"><span class="v3-dist-status">Winner</span>Trophées de la Construction 2022</div><div class="v3-dist-item"><span class="v3-dist-status">Winner</span>Prix Construction Bois IDF 2021</div><div class="v3-dist-item"><span class="v3-dist-status">Finalist</span>Grand Prix SIMI 2022</div><div class="v3-dist-item"><span class="v3-dist-status">Longlist</span>Dezeen Awards 2022</div></div></div>
+</div>
+<div class="cart-v3"><div class="v3-preamble"><div class="v3-bloc-reco"><div class="v3-bloc-title">Awards · 6 distinctions</div><ul><li><strong>Architizer A+ Awards</strong> <span class="year">2022</span><span class="status">— Lauréat</span></li><li><strong>UIA 2030 ONU-Habitat</strong> <span class="year">2022</span><span class="status">— Mention</span></li><li><strong>Construction Bois IDF</strong> <span class="year">2021</span><span class="status">— Lauréat</span></li></ul><div class="more">+ 3 autres — <a href="#reconnaissances">voir l'index →</a></div></div></div><div class="v3-bandeau"><div class="v3-cell moa"><span class="micro">Client</span><span class="big">Paris Habitat</span><span class="sub">Lauréat concours</span></div><div class="v3-cell budget"><span class="micro">Budget</span><span class="big">8,8 M€</span><span class="sub">2 000 €/m²</span></div><div class="v3-cell surface"><span class="micro">Floor area</span><span class="big">4 400 m²</span><span class="sub">SDP</span></div><div class="v3-cell phase"><span class="micro">Phase</span><span class="big">Livré 2021</span><span class="sub">Bois + paille · –125 t CO₂ vs neuf</span></div></div></div></header>
+<div class="project-description">
+<p>Transformation of a 4,400 m² office building into student housing. Major refurbishment combined with a rooftop extension: demolishing a full bay and a half was necessary to allow direct sunlight into the heart of the building.</p><p>Construction MOB, isolation biosourcée paille — ossature bois + bottes de paille compressée de 36 cm, fabriquées en atelier en filière sèche. Paille provenant d'Île-de-France.</p>
+</div>
+<div class="project-prize"><span class="label">Awards</span><div class="value">Lauréat — Prix Régional Construction Bois Île-de-France 2021 · Lauréat — Trophées de la Construction 2022 (habitat collectif rénové) · Mention d'Honneur — Prix UIA 2030 / ONU-Habitat 2022 · Lauréat — Architizer A+ Awards 2022 · Finaliste — Grand Prix SIMI 2022 · Dezeen Awards 2022 Longlist</div></div>
+<div class="v3-project-grid"><div class="v3-hero" id="v3-bertelotte-0"><a class="v3-open" href="#v3-bertelotte-0"><img src="../media/BERTELOTTE_001.jpg" alt="Bertelotte / Avia — vue principale" style="transform: none !important; object-position: 50.2% 50.3%;" class=""></a></div><div class="v3-video-block"><video autoplay="" loop="" muted="" playsinline="" controls="" preload="metadata"><source src="../media/avia-film.mp4" type="video/mp4"></video></div><div class="v3-row v3-row-2"><div class="v3-slot v3-slot-43" id="v3-bertelotte-schema"><a class="v3-open" href="#le-add-1779020264392-4h8q"><img src="../media/upload-c7b7dd07.jpg" alt="avia hero.jpg" class="" style="object-position: 50% 100%; transform: none !important;"></a></div></div><div class="v3-row v3-row-3"><div class="v3-slot v3-slot-43" id="v3-bertelotte-4"><a class="v3-open" href="#v3-bertelotte-schema"><img src="../media/bertelotte-schema-transformation.gif" alt="Schema transformation Bertelotte" class="schema-gif" style="transform: none !important;"></a></div><div class="v3-slot v3-slot-43" id="v3-bertelotte-5"><a class="v3-open" href="#v3-bertelotte-5"><img src="../media/Avia 2.jpg" alt="Avia 2.png" style="transform: none !important;"></a></div><div class="v3-slot v3-slot-43" id="v3-bertelotte-6"><a class="v3-open" href="#v3-bertelotte-6"><img src="../media/Avia 3.jpg" alt="Avia 3.png" style="transform: none !important;"></a></div></div><div class="v3-row v3-row-3"><div class="v3-slot v3-slot-43" id="v3-bertelotte-7"><a class="v3-open" href="#v3-bertelotte-4"><img src="../media/03-Entrée 05.jpg" alt="03-Entrée 05.jpg" style="transform: none !important;"></a></div><div class="v3-slot v3-slot-43" id="v3-bertelotte-8"><a class="v3-open" href="#v3-bertelotte-8"><img src="../media/BERTELOTTE_006.jpg" alt="BERTELOTTE_006.jpg" style="transform: none !important;"></a></div><div class="v3-slot v3-slot-43" id="v3-bertelotte-9"><a class="v3-open" href="#v3-bertelotte-9"><img src="../media/Aerienne 4 avant après.jpg" alt="Aerienne 4 avant après.jpg" style="transform: none !important;"></a></div></div><div class="v3-row v3-row-3"><div class="v3-slot v3-slot-43" id="v3-bertelotte-10"><a class="v3-open" href="#v3-bertelotte-7"><img src="../media/Avia 1.jpg" alt="Avia 1.png" style="transform: none !important;"></a></div><div class="v3-slot v3-slot-43" id="v3-bertelotte-11"><a class="v3-open" href="#v3-bertelotte-12"><img src="../media/cColonelAvia-Brezillon-jan2019cAlexisToureau01.jpg" alt="cColonelAvia-Brezillon-jan2019cAlexisToureau01.jpg" style="transform: none !important;" class=""></a></div><div class="v3-slot v3-slot-43" id="v3-bertelotte-12"><a class="v3-open" href="#le-add-1779020264291-0ttc"><img src="../media/upload-4c1bbae1.jpg" alt="02-Faille neige 2.jpg" class="" style="object-position: 39.7% 51.6%; transform: none !important;"></a></div></div><div class="v3-row v3-row-3"><div class="v3-slot v3-slot-43" id="le-add-1778975658152-klef"><a class="v3-open" href="#v3-bertelotte-10"><img src="../media/cColonelAvia-Brezillon-jan2019cAlexisToureau04.jpg" alt="cColonelAvia-Brezillon-jan2019cAlexisToureau04.jpg" class="" style="transform: none !important; object-position: 58.2% 56%;"></a></div><div class="v3-slot v3-slot-43" id="le-add-1778975658184-s66u"><a class="v3-open" href="#v3-bertelotte-13"><img src="../media/NZI_AVIA-mur paille_NZIcsepulveda.jpg" alt="NZI_AVIA-mur paille_NZIcsepulveda.jpg" style="transform: none !important;"></a></div><div class="v3-slot v3-slot-43" id="le-add-1778975658195-4kms"><a class="v3-open" href="#le-add-1778975658195-4kms"><img src="../media/upload-46eb19d1.jpg" alt="P15Avia-BouyguesHAS-jan2021∏AlexisTOUREAU42.jpg" style="transform: none !important;"></a></div></div><div class="v3-row v3-row-3"><div class="v3-slot v3-slot-43" id="le-add-1779020264291-0ttc"><a class="v3-open" href="#le-add-1778975658152-klef"><img src="../media/upload-e2b571d3.jpg" alt="IMG_7488-HDR copie.jpg" style="transform: none !important;"></a></div><div class="v3-slot v3-slot-43" id="le-add-1779020264392-4h8q"><a class="v3-open" href="#le-add-1778975658184-s66u"><img src="../media/upload-778481b7.jpg" alt="P15Avia-BouyguesHAS-jan2021∏AlexisTOUREAU41.jpg" style="transform: none !important;"></a></div></div></div>
+<div class="conference-series" aria-label="Photos — Bertelotte"><div class="cs-grid"></div></div></article>
+<article class="project"><header class="project-header">
+<div class="project-title">
+<div class="project-num-line">
+<span class="project-num">05</span>
+<span class="project-num-label">Équipement culturel · études</span>
+</div>
+<h3 id="proj-cmi">Musée des religions — CMI Issy</h3>
+<div class="program-line">Transformation and extension of a chalk factory · universalist cultural centre · auditorium — Issy-les-Moulineaux</div>
+<div class="project-transform"><span class="pt-label">Transformation</span><span class="pt-detail">soustraction et/ou addition</span><a href="#ch-transformations">→ Ch. III</a></div>
+<div class="project-filiere"><span class="pf-label">Construction type</span><span class="pf-value">Bois + terre crue (pisé)</span></div>
+<div class="v3-perfo-block"><div class="v3-perfo-key">HQE</div><div class="v3-perfo-value">E3C1 · rénovation énergétique</div><div class="v3-perfo-key">Label</div><div class="v3-perfo-value">Construction Bois · pisé</div><div class="v3-perfo-key">Structure</div><div class="v3-perfo-value">Transformation usine de craie · structure existante</div></div>
+</div>
+<div class="cart-v3"><div class="v3-bandeau"><div class="v3-cell moa"><span class="micro">Client</span><span class="big">Ville d'Issy-les-Moulineaux</span><span class="sub">Lauréat concours</span></div><div class="v3-cell budget"><span class="micro">Budget</span><span class="big">8,85 M€</span><span class="sub">2 950 €/m²</span></div><div class="v3-cell surface"><span class="micro">Floor area</span><span class="big">3 000 m²</span><span class="sub">SDP</span></div><div class="v3-cell phase"><span class="micro">Phase</span><span class="big">Études</span><span class="sub">livraison 2T 2028 · Structure bois · terre crue (pisé) · volumes métalliques conservés</span></div></div><div class="v3-prg"><span class="micro">Programme</span> · <a href="#ch-transformations">Transformations → Ch. III</a></div></div></header><div class="project-description">
+</div><div class="v3-project-grid"><div class="v3-hero v3-hero-video" id="v3-cmi-0"><video autoplay="" loop="" muted="" playsinline="" controls="" preload="metadata"><source src="../media/cmi-video.mp4" type="video/mp4"></video></div><div class="v3-row v3-row-2"><div class="v3-slot v3-slot-43" id="v3-cmi-2"><a class="v3-open" href="#le-add-1779020343189-7w8j"><img src="../media/upload-f138ef27.png" alt="CMI_004.png" class="" style="object-position: 60.3% 100%; transform: none !important;"></a></div><div class="v3-slot v3-slot-43" id="v3-cmi-3"><a class="v3-open" href="#v3-cmi-3"><img src="../media/CMI_005.jpg" alt="CMI_005.png" style="transform: none !important;"></a></div></div><div class="v3-row v3-row-2"><div class="v3-slot v3-slot-43" id="v3-cmi-4"><a class="v3-open" href="#v3-cmi-4"><img src="../media/CMI_002.jpg" alt="CMI_002.jpg" style="transform: none !important;"></a></div><div class="v3-slot v3-slot-43" id="v3-cmi-5"><a class="v3-open" href="#v3-cmi-5"><img src="../media/blanqueterie_web.jpg" alt="blanqueterie_web.jpg" style="transform: none !important;"></a></div><div class="v3-slot v3-slot-43" id="le-add-1779020343189-7w8j"><a class="v3-open" href="#v3-cmi-2"><img src="../media/cmi-schema-transformation.gif" alt="Schema transformation CMI" class="schema-gif" style="transform: none !important;"></a></div></div><div class="v3-hero" id="le-add-1778969288462-s34z"><a class="v3-open" href="#le-add-1778969288462-s34z"><img src="../media/NZI__210124 VUE I atrium 005.jpg" alt="NZI__210124 VUE I atrium 005.jpg" style="transform: none !important;"></a></div></div></article>
+<article class="project"><header class="project-header">
+<div class="project-title">
+<div class="project-num-line">
+<span class="project-num">03</span>
+<span class="project-num-label">Équipement sport · chantier</span>
+</div>
+<h3 id="proj-stdiz">Saint-Dizier</h3>
+<div class="program-line">From Decathlon to a bespoke sports complex · transformation by subtraction + bio-sourced extension</div>
+<div class="v3-perfo-block"><div class="v3-perfo-key">HQE</div><div class="v3-perfo-value">Cerqual HQE Tertiaire</div><div class="v3-perfo-key">Label</div><div class="v3-perfo-value">E3C1 · Construction bois</div><div class="v3-perfo-key">Structure</div><div class="v3-perfo-value">Bois (extension) · métal conservé</div></div>
+</div>
+<div class="cart-v3"><div class="v3-bandeau"><div class="v3-cell moa"><span class="micro">Client</span><span class="big">Ville de Saint-Dizier</span><span class="sub">Lauréat concours</span></div><div class="v3-cell budget"><span class="micro">Budget</span><span class="big">9,2 M€</span><span class="sub">2 190 €/m²</span></div><div class="v3-cell surface"><span class="micro">Floor area</span><span class="big">4 200 m²</span><span class="sub">SDP</span></div><div class="v3-cell phase"><span class="micro">Phase</span><span class="big">Projet en cours</span><span class="sub">livraison 2T 2027 · Structure bois (extension) · métal conservé</span></div></div></div></header><div class="project-description">
+</div><div class="v3-project-grid"><div class="v3-hero" id="v3-stdiz-0"><a class="v3-open" href="#v3-stdiz-0"><img src="../media/OTA_nzi_stdizier_frontale_HD.jpg" alt="OTA_nzi_stdizier_frontale_HD.jpg" style="transform: none !important;"></a></div><div class="v3-row v3-row-3"><div class="v3-slot v3-slot-43" id="v3-stdiz-1"><a class="v3-open" href="#v3-stdiz-1"><img src="../media/uploaded-acabbb61e2.jpg" alt="03.2.3 AXONOMETRIE EXISTANT_DEMOL.jpg" class="" style="transform: none !important; object-position: 22% 50.3%;"></a></div><div class="v3-slot v3-slot-43" id="v3-stdiz-2"><a class="v3-open" href="#v3-stdiz-2"><img src="../media/uploaded-c086e23930.jpg" alt="20240314_141110.jpg" class="" style="transform: none !important; object-position: 60.9% 96.2%;"></a></div><div class="v3-slot v3-slot-43" id="v3-stdiz-3"><a class="v3-open" href="#v3-stdiz-3"><img src="../media/OTA_nzi_stdizier_patio_HD.jpg" alt="OTA_nzi_stdizier_patio_HD.jpg" class="" style="transform: none !important;"></a></div></div><div class="v3-hero" id="v3-stdiz-4"><a class="v3-open" href="#v3-stdiz-4"><img src="../media/OTA_nzi_stdizier_parvis_clair2.jpg" alt="OTA_nzi_stdizier_parvis_clair2.png" style="transform: none !important;"></a></div><div class="v3-row v3-row-3"><div class="v3-slot v3-slot-43" id="le-add-1778944761384-3xin"><a class="v3-open" href="#le-add-1778944761384-3xin"><img src="../media/uploaded-86fc1c3e4c.png" alt="Axo.png" style="transform: none !important;"></a></div><div class="v3-slot v3-slot-43" id="le-add-1778944952291-mz87"><a class="v3-open" href="#le-add-1778944952291-mz87"><img src="../media/uploaded-5cd1392c21.jpg" alt="OTA_nzi_stdizier_gym_HD.jpg" style="transform: none !important;"></a></div><div class="v3-slot v3-slot-43" id="le-add-1778945052662-likp"><a class="v3-open" href="#le-add-1778945052662-likp"><img src="../media/OTA_nzi_stdizier_hall_HD.jpg" alt="OTA_nzi_stdizier_hall_HD.jpg" style="transform: none !important;"></a></div></div></div></article>
+<article class="project">
+<header class="project-header">
+<div class="project-title">
+<div class="project-num-line">
+<span class="project-num">12</span>
+<span class="project-num-label">Scolaire · chantier phase 1</span>
+</div>
+<h3 id="proj-coquibus">Coquibus — Evry-Courcouronnes</h3>
+<div class="program-line">Restructuring + extension of school complex · demolition, asbestos removal, rooftop addition · occupied site</div>
+<div class="project-transform"><span class="pt-label">Transformation</span><span class="pt-detail">soustraction et/ou addition</span><a href="#ch-transformations">→ Ch. III</a></div>
+<div class="project-filiere"><span class="pf-label">Construction type</span><span class="pf-value">Bois + chanvre</span></div>
+<div class="v3-perfo-block"><div class="v3-perfo-key">HQE</div><div class="v3-perfo-value">Construction Bois + isolation chanvre</div><div class="v3-perfo-key">Label</div><div class="v3-perfo-value">E3C2 · Label Biosourcé NIV 3</div><div class="v3-perfo-key">Structure</div><div class="v3-perfo-value">Bois · laine chanvre</div></div>
+</div>
+<div class="cart-v3"><div class="v3-bandeau"><div class="v3-cell moa"><span class="micro">Client</span><span class="big">Ville d'Évry-Courcouronnes</span><span class="sub">Lauréat concours</span></div><div class="v3-cell budget"><span class="micro">Budget</span><span class="big">12 M€</span><span class="sub">2 927 €/m²</span></div><div class="v3-cell surface"><span class="micro">Floor area</span><span class="big">4 100 m²</span><span class="sub">SDP</span></div><div class="v3-cell phase"><span class="micro">Phase</span><span class="big">Phase 1 livré</span><span class="sub">Phase 2 chantier · Bois + chanvre · démol · désamiantage · surélévation</span></div></div><div class="v3-prg"><span class="micro">Programme</span> · <a href="#ch-transformations">Transformations → Ch. III</a></div></div></header>
+<div class="project-description">
+</div>
+<div class="v3-project-grid"><div class="v3-hero" id="v3-coquibus-0"><a class="v3-open" href="#v3-coquibus-0"><img src="../media/COQUIBUS-EVRY_chantier.jpg" alt="Chantier Evry — structure bois" style="transform: scale(1.09) translateY(-30.5033px);"></a></div><div class="v3-row v3-row-3"><div class="v3-slot v3-slot-43" id="v3-coquibus-1"><a class="v3-open" href="#v3-coquibus-1"><img src="../media/coquibus-aerial-transformation.gif" alt="Coquibus — vue aerienne existant / projet" class="schema-gif" style="transform: scale(1.09) translateY(-22.5043px);"></a></div><div class="v3-slot v3-slot-43" id="v3-coquibus-2"><a class="v3-open" href="#v3-coquibus-2"><img src="../media/coquibus-schema-transformation.gif" alt="Coquibus — schema transformation 4 phases" class="schema-gif" style="transform: scale(1.09) translateY(-22.5043px);"></a></div><div class="v3-slot v3-slot-43" id="v3-coquibus-3"><a class="v3-open" href="#v3-coquibus-3"><img src="../media/COQUIBUS-EVRY_016.jpg" alt="Coquibus axonometrie" class="" style="transform: scale(1.09) translateY(-22.5043px);"></a></div></div><div class="v3-row v3-row-2"><div class="v3-slot v3-slot-43" id="le-add-1779011184876-e1w0"><a class="v3-open" href="#le-add-1779020431691-he7d"><img src="../media/upload-d2ae2dc1.png" alt="EVRY V2 4.png" style="transform: scale(1.09) translateY(7.7118px); object-position: 52.8% 92.8%;" class=""></a></div><div class="v3-slot v3-slot-43" id="le-add-1779015404175-sc7t"><a class="v3-open" href="#le-add-1779015404175-sc7t"><img src="../media/upload-d2ae2dc1.jpg" alt="EVRY V2 4.png" style="transform: scale(1.09) translateY(-25.9126px);"></a></div></div><div class="v3-row v3-row-3"><div class="v3-slot v3-slot-43" id="le-add-1779020431691-he7d"><a class="v3-open" href="#le-add-1779011184876-e1w0"><img src="../media/upload-6b24badd.jpg" alt="EVRY COUR 2.png" class="" style="transform: scale(1.09) translateY(-7.96267px); object-position: 50% 50%;"></a></div></div></div></article>
+<article class="project"><header class="project-header">
+<div class="project-title">
+<div class="project-num-line">
+<span class="project-num">13</span>
+<span class="project-num-label">Scolaire · études · terre crue</span>
+</div>
+<h3 id="proj-langevin">Langevin — Nanterre</h3>
+<div class="program-line">Restructuring + extension of school complex · refurbishment · courtyard oasis · rammed earth</div>
+<div class="project-filiere"><span class="pf-label">Construction type</span><span class="pf-value">Bois + pisé + terre crue</span></div>
+<div class="v3-perfo-block"><div class="v3-perfo-key">HQE</div><div class="v3-perfo-value">Cerqual Patrimoine BBC · RT 2012 -30%</div><div class="v3-perfo-key">Label</div><div class="v3-perfo-value">E4C2 · Label Biosourcé NIV 3</div><div class="v3-perfo-key">Structure</div><div class="v3-perfo-value">Bois · Pisé · Terre crue · isolation chanvre</div></div>
+</div>
+<div class="cart-v3"><div class="v3-bandeau"><div class="v3-cell moa"><span class="micro">Client</span><span class="big">Ville de Nanterre</span><span class="sub">Lauréat concours</span></div><div class="v3-cell budget"><span class="micro">Budget</span><span class="big">7,9 M€</span><span class="sub">1 340 €/m²</span></div><div class="v3-cell surface"><span class="micro">Floor area</span><span class="big">5 900 m²</span><span class="sub">SDP</span></div><div class="v3-cell phase"><span class="micro">Phase</span><span class="big">Études</span><span class="sub">livraison 1T 2028 · Bois + pisé + terre crue · chanvre</span></div></div></div></header><div class="project-description">
+</div><div class="v3-project-grid"><div class="v3-hero" id="v3-langevin-0"><a class="v3-open" href="#le-add-1778943550868-w0cq"><img src="../media/Ecole-Paul-Langevin_Day-View-b.jpg" alt="Ecole-Paul-Langevin_Day-View-b.jpg" class="" style="transform: scale(1.09) translateY(-30.7465px); object-position: 43.5% 40.8%;"></a></div><div class="v3-row v3-row-3"><div class="v3-slot v3-slot-43" id="v3-langevin-1"><a class="v3-open" href="#v3-langevin-1"><img src="../media/uploaded-f9e90c90db.jpg" alt="existant-old.png" class="" style="transform: scale(1.09) translateY(-22.5717px); object-position: 48.8% 100%;"></a></div><div class="v3-slot v3-slot-43" id="v3-langevin-2"><a class="v3-open" href="#v3-langevin-0"><img src="../media/Ecole-Paul-Langevin_Aerial-View.jpg" alt="Ecole-Paul-Langevin_Aerial-View.png" style="transform: scale(1.09) translateY(-22.5717px);"></a></div><div class="v3-slot v3-slot-43" id="v3-langevin-3"><a class="v3-open" href="#v3-langevin-3"><img src="../media/NANTERRE-LANGEVIN_003.jpg" alt="NANTERRE-LANGEVIN_003.jpg" style="transform: scale(1.09) translateY(-22.5717px);"></a></div></div><div class="v3-row v3-row-2"><div class="v3-slot v3-slot-43" id="le-add-1778943550850-19na"><a class="v3-open" href="#le-add-1778943550850-19na"><img src="../media/uploaded-92e7393da1.png" alt="Coupe detail.png" style="transform: scale(1.09) translateY(-25.648px);"></a></div><div class="v3-slot v3-slot-43" id="le-add-1778943550868-w0cq"><a class="v3-open" href="#v3-langevin-2"><img src="../media/uploaded-45e7b57802.png" alt="Extension.png" style="transform: scale(1.09) translateY(-25.648px);"></a></div></div></div></article>
+
+<section class="chapter-opener" id="ch-logements" data-num="IV">
+  <div class="kicker"><span class="kicker-chip">IV — Housing</span><span class="kicker-sub">dwelling — structure and insulation</span></div>
+  <h2>Housing.</h2>
+  <div class="chapter-intro">
+    <p class="thesis">Three scales, three construction sectors, one single requirement: the building that endures.</p>
+    <p class="examples">Buzenval: 14 social housing units + crèche in a saturated corner plot in Paris 20th — NF Habitat HQE Excellent, Plan Climat Paris. Montreuil: 26 homes co-designed with future residents in participatory housing. Belvédère Bordeaux: 15,800 m² of timber frame (FOB), Timber Score 15%, Biosourced Level 1, BREEAM — what NZI does when the practice steps outside the Paris basin.</p>
+    <p class="conclusion">Here, structure and insulation are not a technical detail: they are the brief itself. Three operations that demonstrate that environmental quality in housing begins with material — timber, straw, hemp — before energy performance.</p>
+  </div>
+</section>
+
+<article class="project"><header class="project-header">
+<div class="project-title">
+<div class="project-num-line">
+<span class="project-num">14</span>
+<span class="project-num-label">Logements + crèche · livré 2023</span>
+</div>
+<h3 id="proj-buzenval">Buzenval</h3>
+<div class="program-line">14 social housing units + crèche · Paris 20<sup>e</sup></div>
+<div class="project-prizes">ArchDaily Building of the Year 2024<span class="pp-sep">·</span>Sélection internationale<span class="pp-sep">·</span><span class="pp-more"><a href="#reconnaissances">see</a></span></div>
+<div class="v3-perfo-block"><div class="v3-perfo-key">HQE</div><div class="v3-perfo-value">NF Habitat HQE Excellent · Plan Climat</div><div class="v3-perfo-key">Label</div><div class="v3-perfo-value">Label Effinergie</div><div class="v3-perfo-key">Structure</div><div class="v3-perfo-value">Construction bois</div></div>
+<div class="v3-distinctions-block"><div class="v3-distinctions-key">Awards &amp; distinctions</div><div class="v3-distinctions-list"><div class="v3-dist-item"><span class="v3-dist-status">Selected</span>ArchDaily Building of the Year 2024</div><div class="v3-dist-item"><span class="v3-dist-status">Publication</span>Metalocus 2023</div></div></div>
+</div>
+<div class="cart-v3"><div class="v3-preamble"><div class="v3-bloc-reco"><div class="v3-bloc-title">Awards · 1 distinction</div><ul><li><strong>ArchDaily Building of the Year</strong> <span class="year">2024</span><span class="status">— Sélection internationale</span></li></ul><div class="more"><a href="#reconnaissances">See index →</a></div></div></div><div class="v3-bandeau"><div class="v3-cell moa"><span class="micro">Client</span><span class="big">Elogie-SIEMP</span><span class="sub">Lauréat concours</span></div><div class="v3-cell budget"><span class="micro">Budget</span><span class="big">2,6 M€</span><span class="sub">2 330 €/m²</span></div><div class="v3-cell surface"><span class="micro">Floor area</span><span class="big">1 115 m²</span><span class="sub">SDP</span></div><div class="v3-cell phase"><span class="micro">Construction type</span><span class="big">New build</span><span class="sub">NF Habitat HQE Excellent · Effinergie · Plan Climat Paris</span></div></div></div></header><div class="project-description">
+<p>A corner plot to negotiate — the intersection of two streets expressing two distinct identities. The insertion is quiet: mineral echoes, shared palette, dialogue with the topography and the volumetric massing.</p>
+</div><div class="project-prize"><span class="label">Awards</span><div class="value">Nominé Building of the Year — ArchDaily 2024 · Metalocus (2023)</div></div><div class="v3-project-grid"><div class="v3-hero" id="v3-buzenval-0"><a class="v3-open" href="#v3-buzenval-0"><img src="../media/cSimonGuesdon_DSC_6302.jpg" alt="cSimonGuesdon_DSC_6302.jpg" style="transform: scale(1.09) translateY(-30.7074px);"></a></div><div class="v3-row v3-row-3"><div class="v3-slot v3-slot-43" id="v3-buzenval-1"><a class="v3-open" href="#v3-buzenval-1"><img src="../media/cSimonGuesdon_DSC2360.jpg" alt="cSimonGuesdon_DSC2360.jpg" style="transform: scale(1.09) translateY(-22.9624px);"></a></div><div class="v3-slot v3-slot-43" id="v3-buzenval-2"><a class="v3-open" href="#v3-buzenval-2"><img src="../media/cSimonGuesdon_DSC2394.jpg" alt="cSimonGuesdon_DSC2394.jpg" style="transform: scale(1.09) translateY(-22.9624px);"></a></div><div class="v3-slot v3-slot-43" id="v3-buzenval-3"><a class="v3-open" href="#v3-buzenval-3"><img src="../media/cSimonGuesdon_DSC2495.jpg" alt="cSimonGuesdon_DSC2495.jpg" style="transform: scale(1.09) translateY(-22.9624px);"></a></div></div><div class="v3-row v3-row-3"><div class="v3-slot v3-slot-43" id="v3-buzenval-4"><a class="v3-open" href="#v3-buzenval-4"><img src="../media/cSimonGuesdon_DSC2551.jpg" alt="cSimonGuesdon_DSC2551.jpg" style="transform: scale(1.09) translateY(-22.0932px);"></a></div><div class="v3-slot v3-slot-43" id="v3-buzenval-5"><a class="v3-open" href="#v3-buzenval-5"><img src="../media/cSimonGuesdon_DSC2476.jpg" alt="cSimonGuesdon_DSC2476.jpg" style="transform: scale(1.09) translateY(-22.0932px);"></a></div><div class="v3-slot v3-slot-43" id="v3-buzenval-6"><a class="v3-open" href="#v3-buzenval-6"><img src="../media/cSimonGuesdon_DSC_5978.jpg" alt="cSimonGuesdon_DSC_5978.jpg" style="transform: scale(1.09) translateY(-22.0932px);"></a></div></div><div class="v3-row v3-row-3"><div class="v3-slot v3-slot-43" id="v3-buzenval-7"><a class="v3-open" href="#v3-buzenval-7"><img src="../media/cSimonGuesdon_DSC_6189.jpg" alt="cSimonGuesdon_DSC_6189.jpg" style="transform: scale(1.09) translateY(-9.53896px);"></a></div><div class="v3-slot v3-slot-43" id="v3-buzenval-8"><a class="v3-open" href="#v3-buzenval-8"><img src="../media/cSimonGuesdon_DSC_6078.jpg" alt="cSimonGuesdon_DSC_6078.jpg" style="transform: scale(1.09) translateY(-9.53896px);"></a></div><div class="v3-slot v3-slot-43" id="v3-buzenval-9"><a class="v3-open" href="#v3-buzenval-9"><img src="../media/cSimonGuesdon_DSC_6228.jpg" alt="cSimonGuesdon_DSC_6228.jpg" style="transform: scale(1.09) translateY(-9.53896px);"></a></div></div><div class="v3-row v3-row-3"><div class="v3-slot v3-slot-43" id="v3-buzenval-10"><a class="v3-open" href="#v3-buzenval-10"><img src="../media/cSimonGuesdon_DSC_6094.jpg" alt="cSimonGuesdon_DSC_6094.jpg" style="transform: scale(1.09) translateY(3.01526px);"></a></div><div class="v3-slot v3-slot-43" id="v3-buzenval-11"><a class="v3-open" href="#v3-buzenval-11"><img src="../media/cSimonGuesdon_DSC_6311.jpg" alt="cSimonGuesdon_DSC_6311.jpg" style="transform: scale(1.09) translateY(3.01526px);"></a></div><div class="v3-slot v3-slot-43" id="v3-buzenval-12"><a class="v3-open" href="#v3-buzenval-12"><img src="../media/cSimonGuesdon_DSC_6230.jpg" alt="cSimonGuesdon_DSC_6230.jpg" style="transform: scale(1.09) translateY(3.01526px);"></a></div></div></div></article>
+<article class="project"><header class="project-header">
+<div class="project-title">
+<div class="project-num-line">
+<span class="project-num">16</span>
+<span class="project-num-label">Habitat participatif · livré 2019</span>
+</div>
+<h3 id="proj-montreuil">Montreuil — 26 logements participatifs</h3>
+<div class="program-line">Participatory housing · 26 homes · Montreuil</div>
+<div class="project-prizes">Lauréat ADC Awards 2018<span class="pp-sep">·</span>Nominé Équerre d'Argent 1ʳᵉ Œuvre<span class="pp-sep">·</span><span class="pp-more"><a href="#reconnaissances">see</a></span></div>
+<div class="v3-perfo-block"><div class="v3-perfo-key">HQE</div><div class="v3-perfo-value">RT2012 -10%</div><div class="v3-perfo-key">Label</div><div class="v3-perfo-value">RE2020</div><div class="v3-perfo-key">Structure</div><div class="v3-perfo-value">Participatory housing</div></div>
+<div class="v3-distinctions-block"><div class="v3-distinctions-key">Awards &amp; distinctions</div><div class="v3-distinctions-list"><div class="v3-dist-item"><span class="v3-dist-status">Winner</span>ADC Awards 2018</div><div class="v3-dist-item"><span class="v3-dist-status">Selected</span>Europe 40 Under 40 (agence)</div><div class="v3-dist-item"><span class="v3-dist-status">Winner</span>Prix Femme Architecte 2018 (Sandra de Giorgio)</div><div class="v3-dist-item"><span class="v3-dist-status">Nomination</span>Équerre d'Argent 1ère Œuvre 2019</div></div></div>
+</div>
+<div class="cart-v3"><div class="v3-preamble"><div class="v3-bloc-reco"><div class="v3-bloc-title">Awards · 2 distinctions</div><ul><li><strong>ADC Awards</strong> <span class="year">2018</span><span class="status">— Lauréat</span></li><li><strong>Équerre d'Argent Première Œuvre</strong> <span class="year">2017</span><span class="status">— Nominé</span></li></ul><div class="more"><a href="#reconnaissances">See index →</a></div></div></div><div class="v3-bandeau"><div class="v3-cell moa"><span class="micro">Client</span><span class="big">CPA-CPS (coopérative d'habitants)</span><span class="sub">Direct commission</span></div><div class="v3-cell budget"><span class="micro">Budget</span><span class="big">3,06 M€</span><span class="sub">1 670 €/m²</span></div><div class="v3-cell surface"><span class="micro">Floor area</span><span class="big">1 832 m²</span><span class="sub">SDP</span></div><div class="v3-cell phase"><span class="micro">Construction type</span><span class="big">New build</span><span class="sub">Habitat participatif · RT2012-10%</span></div></div></div></header><div class="project-description">
+<p>One of the founding projects of NZI's participatory practice. Designed with future residents — an acknowledged intellectual back-and-forth between the architect team, client, engineers and users. What was delivered is an everyday life; the awards came after.</p>
+</div><div class="project-prize"><span class="label">Awards</span><div class="value">Archi Design Awards 2018 — Lauréat (Logements petit collectif) · Archi Design Club Awards — Lauréat · Sélection Europe 40 Under 40 · Prix Femme Architecte · Nominé Première Œuvre — Équerre d'Argent 2019 · ADC Awards 2018</div></div><div class="v3-project-grid"><div class="v3-hero" id="v3-montreuil-0"><a class="v3-open" href="#v3-montreuil-0"><img src="../media/MONTREUIL-PARTICIPATIF_001.jpg" alt="Montreuil — vue principale" style="transform: none !important;"></a></div><div class="v3-video-block"><video autoplay="" loop="" muted="" playsinline="" controls="" preload="metadata"><source src="../media/montreuil-film.mp4#t=10" type="video/mp4"></video></div><div class="v3-row v3-row-3"><div class="v3-slot v3-slot-43" id="v3-montreuil-1"><a class="v3-open" href="#v3-montreuil-1"><img src="../media/MONTREUIL-PARTICIPATIF_004.jpg" alt="MONTREUIL-PARTICIPATIF_004.jpg" style="transform: none !important;"></a></div><div class="v3-slot v3-slot-43" id="v3-montreuil-2"><a class="v3-open" href="#v3-montreuil-2"><img src="../media/MONTREUIL-PARTICIPATIF_008.jpg" alt="MONTREUIL-PARTICIPATIF_008.png" style="transform: none !important;"></a></div><div class="v3-slot v3-slot-43" id="v3-montreuil-3"><a class="v3-open" href="#v3-montreuil-3"><img src="../media/MONTREUIL-PARTICIPATIF_009.jpg" alt="MONTREUIL-PARTICIPATIF_009.jpg" style="transform: none !important;"></a></div></div><div class="v3-row v3-row-3"><div class="v3-slot v3-slot-43" id="v3-montreuil-4"><a class="v3-open" href="#v3-montreuil-4"><img src="../media/MONTREUIL-PARTICIPATIF_005.jpg" alt="MONTREUIL-PARTICIPATIF_005.jpg" style="transform: none !important;"></a></div><div class="v3-slot v3-slot-43" id="v3-montreuil-5"><a class="v3-open" href="#v3-montreuil-5"><img src="../media/MONTREUIL-PARTICIPATIF_006.jpg" alt="MONTREUIL-PARTICIPATIF_006.jpg" style="transform: none !important;"></a></div><div class="v3-slot v3-slot-43" id="v3-montreuil-6"><a class="v3-open" href="#v3-montreuil-6"><img src="../media/MONTREUIL-PARTICIPATIF_007.jpg" alt="MONTREUIL-PARTICIPATIF_007.jpg" style="transform: none !important;"></a></div></div><div class="v3-row v3-row-3"><div class="v3-slot v3-slot-43" id="v3-montreuil-7"><a class="v3-open" href="#v3-montreuil-7"><img src="../media/A39.jpg" alt="A39.jpg" style="transform: none !important;"></a></div><div class="v3-slot v3-slot-43" id="v3-montreuil-8"><a class="v3-open" href="#v3-montreuil-8"><img src="../media/A19 clair.jpg" alt="A19 clair.jpg" style="transform: none !important;"></a></div><div class="v3-slot v3-slot-43" id="v3-montreuil-9"><a class="v3-open" href="#v3-montreuil-9"><img src="../media/G.jpg" alt="G.jpg" style="transform: none !important;"></a></div></div><div class="v3-row v3-row-3"><div class="v3-slot v3-slot-43" id="v3-montreuil-10"><a class="v3-open" href="#v3-montreuil-10"><img src="../media/IMG_0736.jpg" alt="IMG_0736.jpg" style="transform: none !important;"></a></div><div class="v3-slot v3-slot-43" id="v3-montreuil-11"><a class="v3-open" href="#v3-montreuil-11"><img src="../media/02 clair.jpg" alt="02 clair.jpg" style="transform: none !important;"></a></div><div class="v3-slot v3-slot-43" id="v3-montreuil-12"><a class="v3-open" href="#v3-montreuil-12"><img src="../media/15 clair.jpg" alt="15 clair.jpg" style="transform: none !important;"></a></div></div></div></article>
+<article class="project"><header class="project-header">
+<div class="project-title">
+<div class="project-num-line">
+<span class="project-num">17</span>
+<span class="project-num-label">Logement / mixte · études — à compléter</span>
+</div>
+<h3 id="proj-belvedere">ZAC Belvédère — Bordeaux</h3>
+<div class="program-line">Programme to be confirmed — development on the ZAC Belvédère, right bank of Bordeaux Métropole</div>
+<div class="v3-perfo-block"><div class="v3-perfo-key">HQE</div><div class="v3-perfo-value">NF Habitat HQE · BREEAM</div><div class="v3-perfo-key">Label</div><div class="v3-perfo-value">RE2020 seuil 2025 · Biosourcé NIV 1 · Biodivercity · BFB</div><div class="v3-perfo-key">Structure</div><div class="v3-perfo-value">Score bois 15%</div></div>
+</div>
+<div class="cart-v3"><div class="v3-bandeau"><div class="v3-cell moa"><span class="micro">Client</span><span class="big">Nexity</span><span class="sub">Direct commission</span></div><div class="v3-cell budget"><span class="micro">Budget</span><span class="big">34 M€</span><span class="sub">2 152 €/m²</span></div><div class="v3-cell surface"><span class="micro">Floor area</span><span class="big">15 800 m²</span><span class="sub">SDP</span></div><div class="v3-cell phase"><span class="micro">Construction type</span><span class="big">Ossature bois (FOB)</span><span class="sub">RE2020 seuil 2025 · Bois 15% · Biosourcé NIV1 · BREEAM</span></div></div></div></header><div class="project-description">
+</div><div class="v3-project-grid"><div class="v3-hero" id="v3-belvedere-0"><a class="v3-open" href="#v3-belvedere-0"><img src="../media/OTA_nzi_belvedere_frontal_A.jpg" alt="OTA_nzi_belvedere_frontal_A.jpg" style="transform: none !important;"></a></div><div class="v3-row v3-row-2"><div class="v3-slot v3-slot-43" id="v3-belvedere-1"><a class="v3-open" href="#v3-belvedere-1"><img src="../media/OTA_nzi_belvedere_rue_A.jpg" alt="OTA_nzi_belvedere_rue_A.jpg" style="transform: none !important;"></a></div><div class="v3-slot v3-slot-43" id="v3-belvedere-2"><a class="v3-open" href="#v3-belvedere-2"><img src="../media/OTA_nzi_belvedere_rue_B_sun_2.jpg" alt="OTA_nzi_belvedere_rue_B_sun_2.jpg" style="transform: none !important;"></a></div></div></div></article>
+
+<!-- ============ RECONNAISSANCES ============ -->
+<!-- ============ RECONNAISSANCES (v2) ============ -->
+<section class="reconnaissances" id="reconnaissances">
+  <header class="reco-head">
+    <h2 class="reco-title">Awards</h2>
+    <span class="reco-meta">Awards, lectures &amp; exhibitions · 2016 — 2026</span>
+  </header>
+
+  <div class="reco-section">
+    <p class="reco-section-title">Awards</p>
+    <div class="reco-subsection">
+      <p class="reco-subsection-title">International</p>
+      <ul class="reco-list">
+        <li class="reco-row"><span class="reco-year">2024</span><div class="reco-main"><span class="reco-prize">ArchDaily Building of the Year</span><span class="reco-project">Buzenval · Paris 20ᵉ</span></div><span class="reco-status">Selected</span></li>
+        <li class="reco-row"><span class="reco-year">2022</span><div class="reco-main"><span class="reco-prize">Architizer A+ Awards</span><span class="reco-project">Bertelotte · Architecture &amp; Affordable Design</span></div><span class="reco-status is-laureat">Winner</span></li>
+        <li class="reco-row"><span class="reco-year">2022</span><div class="reco-main"><span class="reco-prize">Architizer A+ Awards</span><span class="reco-project">Bertelotte</span></div><span class="reco-status">Finaliste ×2</span></li>
+        <li class="reco-row"><span class="reco-year">2022</span><div class="reco-main"><span class="reco-prize">Prix UIA 2030</span><span class="reco-project">Bertelotte · UIA / ONU-Habitat</span></div><span class="reco-status">Honourable mention</span></li>
+        <li class="reco-row"><span class="reco-year">2022</span><div class="reco-main"><span class="reco-prize">Dezeen Awards</span><span class="reco-project">Bertelotte</span></div><span class="reco-status">Longlist</span></li>
+        <li class="reco-row"><span class="reco-year">2020</span><div class="reco-main"><span class="reco-prize">ArchDaily Building of the Year</span><span class="reco-project">13 maisons bois+paille · Nogent-le-Rotrou</span></div><span class="reco-status">Selected</span></li>
+        <li class="reco-row"><span class="reco-year">2018</span><div class="reco-main"><span class="reco-prize">Europe 40 Under 40</span><span class="reco-project">NZI · Chicago Athenaeum / European Centre</span></div><span class="reco-status is-laureat">Winner</span></li>
+      </ul>
+    </div>
+    <div class="reco-subsection">
+      <p class="reco-subsection-title">National — France</p>
+      <ul class="reco-list">
+        <li class="reco-row"><span class="reco-year">2026</span><div class="reco-main"><span class="reco-prize">Creativ'Impact</span><span class="reco-project">NZI</span></div><span class="reco-status">Finalist</span></li>
+        <li class="reco-row"><span class="reco-year">2025</span><div class="reco-main"><span class="reco-prize">APEX — Architectures Parisiennes Exemplaires</span><span class="reco-project">Python-Duvernois · Ville de Paris</span></div><span class="reco-status is-laureat">Winner</span></li>
+        <li class="reco-row"><span class="reco-year">2025</span><div class="reco-main"><span class="reco-prize">AMI Bâti Sobre</span><span class="reco-project">Python-Duvernois · ADEME</span></div><span class="reco-status is-laureat">Winner</span></li>
+        <li class="reco-row"><span class="reco-year">2024</span><div class="reco-main"><span class="reco-prize">Trophée BBCA Quartier Bas Carbone</span><span class="reco-project">ZAC Python-Duvernois · Certivea / SEMAPA</span></div><span class="reco-status is-laureat">Winner</span></li>
+        <li class="reco-row"><span class="reco-year">2022</span><div class="reco-main"><span class="reco-prize">Trophées de la Construction</span><span class="reco-project">Bertelotte · Batiactu</span></div><span class="reco-status is-laureat">Winner</span></li>
+        <li class="reco-row"><span class="reco-year">2022</span><div class="reco-main"><span class="reco-prize">Grand Prix SIMI</span><span class="reco-project">Bertelotte · Habitat &amp; Logements Transformation</span></div><span class="reco-status">Finalist</span></li>
+        <li class="reco-row"><span class="reco-year">2021</span><div class="reco-main"><span class="reco-prize">Prix Construction Bois Île-de-France</span><span class="reco-project">Bertelotte · Fibois IDF</span></div><span class="reco-status is-laureat">Winner</span></li>
+        <li class="reco-row"><span class="reco-year">2020</span><div class="reco-main"><span class="reco-prize">Palmarès des Bâtiments biosourcés</span><span class="reco-project">13 maisons bois+paille · Nogent-le-Rotrou · FFB</span></div><span class="reco-status is-laureat">Prix du Jury</span></li>
+        <li class="reco-row"><span class="reco-year">2020</span><div class="reco-main"><span class="reco-prize">ADC Awards</span><span class="reco-project">Nogent-le-Rotrou</span></div><span class="reco-status">Nominated</span></li>
+        <li class="reco-row"><span class="reco-year">2020</span><div class="reco-main"><span class="reco-prize">ADC Awards</span><span class="reco-project">Périscolaire Bonneuil-en-France</span></div><span class="reco-status">Nominated</span></li>
+        <li class="reco-row"><span class="reco-year">2019</span><div class="reco-main"><span class="reco-prize">Trophées Bois Île-de-France</span><span class="reco-project">Périscolaire Bonneuil-en-France · Fibois IDF</span></div><span class="reco-status is-laureat">Winner</span></li>
+        <li class="reco-row"><span class="reco-year">2018</span><div class="reco-main"><span class="reco-prize">ADC Awards</span><span class="reco-project">26 logements participatifs · Montreuil</span></div><span class="reco-status is-laureat">Winner</span></li>
+        <li class="reco-row"><span class="reco-year">2018</span><div class="reco-main"><span class="reco-prize">Jeune Femme Architecte</span><span class="reco-project">Sandra de Giorgio · ARVHA</span></div><span class="reco-status is-laureat">Winner</span></li>
+        <li class="reco-row"><span class="reco-year">2017</span><div class="reco-main"><span class="reco-prize">Équerre d'Argent — Première Œuvre</span><span class="reco-project">26 logements participatifs · Montreuil · Le Moniteur / AMC</span></div><span class="reco-status">Nominated</span></li>
+      </ul>
+      <p class="reco-note"><strong>Note historique</strong> — Les prix 2017–2020 (Nogent-le-Rotrou, Bonneuil-en-France, Équerre d'Argent Montreuil) relate to projects prior to the 2025-2026 scope of this journal. They are listed here to confirm that the NZI approach — active transformation, bio-sourced materials, timber+straw — has held for eight years, not only since 2025.</p>
+    </div>
+  </div>
+
+  <div class="reco-section">
+    <p class="reco-section-title">Conférences,<br>expositions<br>&amp; événements</p>
+    <div class="reco-subsection">
+      <p class="reco-subsection-title">International</p>
+      <p class="reco-subsection-title">International — by country</p>
+      <div class="reco-country-group">
+        <h4 class="reco-country">France<span class="reco-country-code">FR</span></h4>
+        <ul class="reco-list">
+          <li class="reco-row"><span class="reco-year">2026</span><div class="reco-main"><span class="reco-prize">Forum Bois Construction</span><span class="reco-project">Grand Palais · Paris</span></div><span class="reco-status">Participation + exhibition</span></li>
+        </ul>
+      </div>
+      <div class="reco-country-group">
+        <h4 class="reco-country">Italie<span class="reco-country-code">IT</span></h4>
+        <ul class="reco-list">
+          <li class="reco-row"><span class="reco-year">2023</span><div class="reco-main"><span class="reco-prize">Biennale d'Architecture de Pise</span></div><span class="reco-status">Exhibition + conference</span></li>
+          <li class="reco-row"><span class="reco-year">2016</span><div class="reco-main"><span class="reco-prize">Biennale de Venise — RIUSO</span></div><span class="reco-status">Exhibition</span></li>
+        </ul>
+      </div>
+      <div class="reco-country-group">
+        <h4 class="reco-country">Autriche<span class="reco-country-code">AT</span></h4>
+        <ul class="reco-list">
+          <li class="reco-row"><span class="reco-year">2026</span><div class="reco-main"><span class="reco-prize">PLANERFORUM.ARCHITEKTUR</span><span class="reco-project">TU Wien · Vienne</span></div><span class="reco-status">Invited speaker</span></li>
+          <li class="reco-row"><span class="reco-year">2025</span><div class="reco-main"><span class="reco-prize">IHF Innsbruck (29ᵉ édition)</span><span class="reco-project">Conférence internationale</span></div><span class="reco-status">Invited speaker</span></li>
+          <li class="reco-row"><span class="reco-year">2024</span><div class="reco-main"><span class="reco-prize">Forum Holzbau Innsbruck</span></div><span class="reco-status">Stand</span></li>
+        </ul>
+      </div>
+      <div class="reco-country-group">
+        <h4 class="reco-country">Pays-Bas<span class="reco-country-code">NL</span></h4>
+        <ul class="reco-list">
+          <li class="reco-row"><span class="reco-year">2024</span><div class="reco-main"><span class="reco-prize">IABR Rotterdam</span><span class="reco-project">Paris Biobased / Emma Diehl</span></div><span class="reco-status">Exhibition</span></li>
+          <li class="reco-row"><span class="reco-year">2016</span><div class="reco-main"><span class="reco-prize">IABR Rotterdam — The Next Economy</span></div><span class="reco-status">Exposition + conférences</span></li>
+        </ul>
+      </div>
+      <div class="reco-country-group">
+        <h4 class="reco-country">Espagne<span class="reco-country-code">ES</span></h4>
+        <ul class="reco-list">
+          <li class="reco-row"><span class="reco-year">2023</span><div class="reco-main"><span class="reco-prize">COACAN — Cantabrie</span><span class="reco-project">Santander</span></div><span class="reco-status">Invited speaker</span></li>
+        </ul>
+      </div>
+      <div class="reco-country-group">
+        <h4 class="reco-country">Australie<span class="reco-country-code">AU</span></h4>
+        <ul class="reco-list">
+          <li class="reco-row"><span class="reco-year">2021</span><div class="reco-main"><span class="reco-prize">University of Western Australia</span><span class="reco-project">En ligne</span></div><span class="reco-status">Invited speaker</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="reco-subsection">
+      <p class="reco-subsection-title">National — France</p>
+      <ul class="reco-list">
+        <li class="reco-row"><span class="reco-year">2025</span><div class="reco-main"><span class="reco-prize">Forum Bois Construction · Paris</span><span class="reco-project">Intervention Nollet · Construction bas carbone</span></div><span class="reco-status">Conférence</span></li>
+        <li class="reco-row"><span class="reco-year">2025</span><div class="reco-main"><span class="reco-prize">Observatoire Construction Bois</span></div><span class="reco-status">Symposium</span></li>
+        <li class="reco-row"><span class="reco-year">2025</span><div class="reco-main"><span class="reco-prize">Lille Métropole — ADULM</span><span class="reco-project">Avenir des parkings et leur transformation</span></div><span class="reco-status">Conférence</span></li>
+        <li class="reco-row"><span class="reco-year">2024</span><div class="reco-main"><span class="reco-prize">Forum Bois Construction · Nancy</span><span class="reco-project">Village des Athlètes</span></div><span class="reco-status">Conférence</span></li>
+        <li class="reco-row"><span class="reco-year">2023</span><div class="reco-main"><span class="reco-prize">Congrès USH Nantes — CNOA</span></div><span class="reco-status">Conférence</span></li>
+        <li class="reco-row"><span class="reco-year">2023</span><div class="reco-main"><span class="reco-prize">Maison de l'Architecture · Paris</span><span class="reco-project">Conférence Nollet</span></div><span class="reco-status">Conférence</span></li>
+        <li class="reco-row"><span class="reco-year">2022</span><div class="reco-main"><span class="reco-prize">Pavillon de l'Arsenal · Paris</span><span class="reco-project">Présentation Nollet</span></div><span class="reco-status">Débat</span></li>
+        <li class="reco-row"><span class="reco-year">2022</span><div class="reco-main"><span class="reco-prize">CNDB — Bardage bois</span></div><span class="reco-status">Colloque technique</span></li>
+        <li class="reco-row"><span class="reco-year">2022</span><div class="reco-main"><span class="reco-prize">BAP! Île-de-France</span><span class="reco-project">Village des Athlètes</span></div><span class="reco-status">Exhibition</span></li>
+        <li class="reco-row"><span class="reco-year">2022</span><div class="reco-main"><span class="reco-prize">Maison de l'Architecture · Normandie</span></div><span class="reco-status">Exhibition</span></li>
+        <li class="reco-row"><span class="reco-year">2022</span><div class="reco-main"><span class="reco-prize">CAUE 92</span><span class="reco-project">Transformer des bureaux en logements</span></div><span class="reco-status">Conférence pédagogique</span></li>
+        <li class="reco-row"><span class="reco-year">2022</span><div class="reco-main"><span class="reco-prize">Labo Éco-construction Paris</span></div><span class="reco-status">Séminaire</span></li>
+        <li class="reco-row"><span class="reco-year">2021</span><div class="reco-main"><span class="reco-prize">ENSAPLV · Paris</span></div><span class="reco-status">Conférence pédagogique</span></li>
+        <li class="reco-row"><span class="reco-year">2021</span><div class="reco-main"><span class="reco-prize">Université La Sorbonne · Paris</span></div><span class="reco-status">Conférence pédagogique</span></li>
+        <li class="reco-row"><span class="reco-year">2021</span><div class="reco-main"><span class="reco-prize">ESA · Paris</span></div><span class="reco-status">Conférence</span></li>
+        <li class="reco-row"><span class="reco-year">2020</span><div class="reco-main"><span class="reco-prize">CAUE 92</span><span class="reco-project">Logement et équipements</span></div><span class="reco-status">Séminaire</span></li>
+        <li class="reco-row"><span class="reco-year">2020</span><div class="reco-main"><span class="reco-prize">ENSA Val de Seine</span></div><span class="reco-status">Conférence pédagogique</span></li>
+        <li class="reco-row"><span class="reco-year">2019</span><div class="reco-main"><span class="reco-prize">Forum Bois Construction · Nancy</span></div><span class="reco-status">Conférence</span></li>
+        <li class="reco-row"><span class="reco-year">2019</span><div class="reco-main"><span class="reco-prize">Biennale de Versailles — Femmes Architectes</span><span class="reco-project">Sandra de Giorgio</span></div><span class="reco-status">Exhibition</span></li>
+        <li class="reco-row"><span class="reco-year">2018</span><div class="reco-main"><span class="reco-prize">Pavillon de l'Arsenal · Paris</span><span class="reco-project">Habiter Mieux, Habiter Plus</span></div><span class="reco-status">Exhibition + conference</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+<section class="cloture" id="cloture"><p class="cloture-statement">Le travelling s'arrête ici. Le projet continue.</p><p class="cloture-gloss">Dix-sept opérations, dix-sept manières d'entrer dans ce qui existait déjà. Le carnet se referme ; les chantiers, les études et les jurys continuent. La prochaine édition documentera la suite — d'autres parkings transformés, d'autres terres crues posées, d'autres cœurs d'îlot ouverts.</p><div class="cloture-footer"><span>Journal 2025-2026 · NZI Architectes Urbanistes</span><span>Travelling · Édition 01</span></div></section>
+<section class="contact-block"><div class="kicker">VII — Contact</div><h2>Get in touch.</h2><div class="contact-grid">
+<div class="contact-cell">
+<div class="label">Studio</div>
+<div class="contact-name">NZI Architectes Urbanistes</div>
+<div class="contact-line">26 rue Miguel Hidalgo</div>
+<div class="contact-line">75019 Paris</div>
+</div>
+<div class="contact-cell">
+<div class="label">Contact</div>
+<div class="contact-line"><a href="mailto:nzi@nzi.fr">nzi@nzi.fr</a></div>
+<div class="contact-line"><a href="tel:+33950156430">+33 (0)9 50 15 64 30</a></div>
+<div class="contact-line"><a href="https://www.nzi.fr">nzi.fr</a></div>
+</div>
+<div class="contact-cell">
+<div class="label">Leadership</div>
+<div class="contact-name">Sandra de Giorgio</div>
+<div class="contact-name">Gianluca Gaudenzi</div>
+<div class="contact-line">Co-founders</div>
+</div>
+<div class="contact-cell">
+<div class="label">Échanger</div>
+<div class="contact-line">Une consultation, un projet, un doute ?</div>
+<div class="contact-line">Écrivez directement à l'agence.</div>
+<div class="contact-line">On vous rappelle.</div>
+</div>
+</div><div class="contact-footer">
+<span class="meta">Fin des Relevés · Édition 01</span>
+<span class="meta">SIREN 752 357 921 · SARL d'architecture</span>
+</div></section>
+<script>
+/* Cover animations */
+(function() {
+  var cover = document.querySelector('.v5-cover');
+  /* Eyebrow NZI */
+  if (cover && !cover.querySelector('.cover-eyebrow')) {
+    var eyebrow = document.createElement('div');
+    eyebrow.className = 'cover-eyebrow';
+    eyebrow.innerHTML =
+      '<span class="cover-eyebrow-brand">NZI Architectes Urbanistes</span>' +
+      '<span class="cover-eyebrow-year">Travel journal &middot; 2025&ndash;2026</span>';
+    cover.insertBefore(eyebrow, cover.firstChild);
+  }
+  /* Lettre par lettre sur le h1 */
+  var h1 = document.querySelector('.v5-cover-h1');
+  if (h1) {
+    var raw = h1.textContent || h1.innerText;
+    h1.innerHTML = '';
+    var ci = 0;
+    for (var i = 0; i < raw.length; i++) {
+      var ch = raw[i];
+      var span = document.createElement('span');
+      if (ch === ' ') {
+        span.className = 'v2-sp';
+      } else {
+        span.className = 'v2-char';
+        span.style.setProperty('--ci', ci);
+        span.textContent = ch;
+        ci++;
+      }
+      h1.appendChild(span);
+    }
+  }
+  /* Parallax images au scroll */
+  var imgs = Array.from(document.querySelectorAll('.image-slot img, .v3-slot img, .v3-hero img'));
+  function parallax() {
+    var vh = window.innerHeight;
+    imgs.forEach(function(img) {
+      var wrap = img.closest('.image-slot, .v3-slot, .v3-hero');
+      if (!wrap) return;
+      var rect = wrap.getBoundingClientRect();
+      if (rect.top < vh * 1.5 && rect.bottom > -200) {
+        var p = (rect.top + rect.height * 0.5 - vh * 0.5) / vh;
+        img.style.transform = 'scale(1.09) translateY(' + (p * 24) + 'px)';
+      }
+    });
+  }
+  window.addEventListener('scroll', parallax, { passive: true });
+})();
+</script>
+<script>
+(function() {
+  var toc = document.getElementById('toc-nav');
+  var toggle = document.getElementById('toc-toggle');
+  if (toggle) {
+    toggle.addEventListener('click', function() {
+      var open = toc.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', String(open));
+    });
+  }
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      if (toc && toc.classList.contains('open')) {
+        toc.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+      if (location.hash) {
+        history.replaceState(null, '', location.pathname + location.search);
+      }
+    }
+  });
+  // Fermer TOC au clic sur un lien
+  if (toc) {
+    toc.querySelectorAll('a').forEach(function(a) {
+      a.addEventListener('click', function() {
+        toc.classList.remove('open');
+        if (toggle) toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+})();
+</script>
+<script>
+/* P1 — Bouton fermeture lightbox + bg-close */
+(function() {
+  // Click sur le fond du lightbox = fermer
+  document.addEventListener('click', function(ev) {
+    if (!location.hash || location.hash.indexOf('v3-') === -1) return;
+    var t = ev.target;
+    if (t.tagName === 'IMG' || t.closest('.img-actions') || t.closest('.js-lb-close')) return;
+    if (t.classList.contains('v3-open') || t.classList.contains('v3-hero') || t.classList.contains('v3-slot')) {
+      ev.preventDefault();
+      location.hash = '__lb_close__';
+      setTimeout(function() {
+        if (history.replaceState) history.replaceState('', '', location.pathname + location.search);
+      }, 0);
+      var b = document.querySelector('.js-lb-close');
+      if (b) b.classList.remove('visible');
+    }
+  });
+  /* lightbox-bg-close */
+
+  var btn = document.createElement('button');
+  btn.className = 'js-lb-close';
+  btn.innerHTML = '&#215;';
+  btn.setAttribute('aria-label', 'Fermer');
+  document.body.appendChild(btn);
+  function update() {
+    btn.classList.toggle('visible', !!location.hash && location.hash.indexOf('v3-') !== -1);
+  }
+  window.addEventListener('hashchange', update);
+  btn.addEventListener('click', function(ev) {
+    ev.preventDefault();
+    // Force :target à se libérer : navigation vers ancre invalide puis nettoyage URL
+    location.hash = '__lb_close__';
+    setTimeout(function() {
+      if (history.replaceState) {
+        history.replaceState('', '', location.pathname + location.search);
+      } else {
+        location.hash = '';
+      }
+    }, 0);
+    btn.classList.remove('visible');
+  });
+  update();
+})();
+</script><button class="js-lb-close" aria-label="Fermer">×</button><button class="js-lb-close" aria-label="Fermer">×</button><button class="js-lb-close" aria-label="Fermer">×</button><button class="js-lb-close" aria-label="Fermer">×</button><button class="js-lb-close" aria-label="Fermer">×</button><button class="js-lb-close" aria-label="Fermer">×</button><button class="js-lb-close" aria-label="Fermer">×</button><button class="js-lb-close" aria-label="Fermer">×</button><button class="js-lb-close" aria-label="Fermer">×</button><button class="js-lb-close" aria-label="Fermer">×</button><button class="js-lb-close" aria-label="Fermer">×</button><button class="js-lb-close" aria-label="Fermer">×</button><button class="js-lb-close" aria-label="Fermer">×</button><button class="js-lb-close" aria-label="Fermer">×</button><button class="js-lb-close" aria-label="Fermer">×</button><button class="js-lb-close" aria-label="Fermer">×</button>
+
+
+</body></html>

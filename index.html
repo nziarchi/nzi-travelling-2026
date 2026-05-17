@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NZI Architectes — Travelling 2025-2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    height: 100%;
+    background: #0A0A0A;
+    color: #FAF8F2;
+    font-family: 'Darker Grotesque', sans-serif;
+  }
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100dvh;
+    padding: 6vh 6vw;
+  }
+  .label {
+    font-size: clamp(10px, 1.1vw, 13px);
+    font-weight: 700;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: rgba(250,248,242,0.35);
+    margin-bottom: 2.4rem;
+  }
+  h1 {
+    font-size: clamp(52px, 9vw, 130px);
+    font-weight: 900;
+    letter-spacing: -0.06em;
+    line-height: 0.88;
+    color: #FAF8F2;
+    margin-bottom: 4rem;
+    text-align: center;
+  }
+  h1 span { color: #B58E2E; }
+  .links {
+    display: flex;
+    gap: clamp(1rem, 3vw, 2.5rem);
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  a.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 1rem 2.2rem;
+    font-family: 'Darker Grotesque', sans-serif;
+    font-size: clamp(15px, 1.6vw, 20px);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    border: 1px solid rgba(250,248,242,0.18);
+    color: #FAF8F2;
+    transition: border-color 0.3s, color 0.3s;
+  }
+  a.btn:hover { border-color: #B58E2E; color: #B58E2E; }
+  a.btn .lang {
+    font-size: 0.72em;
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    opacity: 0.55;
+  }
+  .year {
+    margin-top: 4rem;
+    font-size: clamp(11px, 1vw, 13px);
+    font-weight: 400;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(250,248,242,0.2);
+  }
+</style>
+</head>
+<body>
+  <p class="label">NZI Architectes Urbanistes</p>
+  <h1>Travelling<br><span>2025–2026</span></h1>
+  <nav class="links">
+    <a class="btn" href="./fr/">Carnet de références <span class="lang">FR</span></a>
+    <a class="btn" href="./en/">Portfolio <span class="lang">EN</span></a>
+  </nav>
+  <p class="year">Paris — 2026</p>
+</body>
+</html>
